@@ -1,0 +1,16 @@
+# Our Incident Response Team address
+Contact: mailto:tor@dotbatman.com
+
+# Our Responsible Disclosure Policy
+Policy: https://gotta.no/disclosure-policy.txt
+
+# Our preferred languages are English and Norwegian
+Preferred-Languages: en, nb-NO
+
+# Acknowledging contributions through Responsible disclosure
+Acknowledgments: https://gotta.no/security-acknowledgments.txt
+
+# Protection and validity of this security.txt file
+Expires: Fri, 30 Sep 2024 18:00:00 +0100
+Canonical: https://gotta.no/.well-known/security.txt
+Encryption: https://gotta.no/.well-known/publickey.txt
