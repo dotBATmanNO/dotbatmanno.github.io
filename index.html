@@ -7,6 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    function fnToggleDark()
+    {
+      if (document.documentElement.getAttribute('data-bs-theme') == 'dark') 
+      {
+        document.documentElement.setAttribute('data-bs-theme','light')
+      }
+      else 
+      {
+        document.documentElement.setAttribute('data-bs-theme','dark')
+      }  
+    }
+  </script>
+  
   <style>
    .placeholdimg {
      height: 150px;
@@ -21,14 +35,22 @@
   <p>The things you just ...</p> 
 </div>
 
+
+
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container-fluid">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link active" href="https://x.com/dotBATman">@dotBATman</a>
+      <li style="margin-top: 6px;color:white">
+        <svg onclick="fnToggleDark()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-circle-half" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"/>
+        </svg>
+        |
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link active" href="https://x.com/dotBATman">@dotBATman</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="introtake/index.html">Introtake</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
@@ -44,29 +66,26 @@
   <div class="row">
     <div class="col-sm-4">
       <h2>About Me</h2>
-      <h5>Tor</h5>
-      <h6>dotBATman</h6>
+      <h5>Tor aka dotBATman</h5>
       <div>
       <img class="img-fluid" src="img/boattrip.jpg" alt="Tor on a boattrip."></div>
       <p>A</p>
     </div>
     <div class="col-sm-4" style="text-align: center;">
       <h2>Introtake</h2>
-      <h5>It's not a word, yet!</h5>
-      <h6>March 2024</h6>
+      <h5>It's not a word, yet! <span class="badge bg-secondary">March 2024</span></h6>
       <div>
       <img class="img-fluid" src="img/introtakecard.jpeg" alt="Introtake logo"></div>
-      <p>I answered a question on how I prefer to receive information; I'd like a short <b>Intro</b>duction that</br>also presents the writer's <b>Take</b>.</p>
+      <p>I answered a question on how I prefer to receive information on a new topic; I'd like a short <b>Intro</b>duction that also presents the writer's <b>Take</b>.</p>
       <p>And once I clicked Post I realized that this could work as a shortcut for a lot of (hopefully) useful posts from me.</p>
     </div>
     <div class="col-sm-4" style="text-align: center;">
       <h2>Going Live</h2>
-      <h5>Site launch.</h5>
-      <h6>March 2024</h6>
+      <h5>Site launch. <span class="badge bg-secondary">March 2024</span></h5>
       <div>
         <img class="img-fluid" src="img/gottano.jpg" alt="gotta (k)no(w) logo"></div>
         <p>I finally got around to using the gotta.no domain for something useful!</p>
-      <p>In my view gotta.no is an obvious play on the phrase "Got To Know". Let's hope you find what you need here!</p>
+      <p>gotta.no is an obvious play on the phrase "Got To Know". Let's hope you find what you need here!</p>
     </div>
   </div>
 </div>
