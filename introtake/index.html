@@ -5,8 +5,8 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="../css/bootstrap.min.css" rel="stylesheet">
-  <script src="../js/bootstrap.bundle.min.js"></script>
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <script src="/js/bootstrap.bundle.min.js"></script>
   <script>
     function fnToggleDark()
     {
@@ -20,7 +20,8 @@
       }  
     }
   </script>
-    <style>
+  
+  <style>
    .placeholdimg {
      height: 150px;
      background: #aaa;
@@ -29,15 +30,15 @@
 </head>
 <body>
 
-  <div class="p-5 bg-primary text-white text-center">
-    <h1>gotta.no/introtake</h1>
-    <p>Quick <b>intro</b>ductions with my <b>Take</b></p> 
-  </div>
-  
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+<div class="p-5 bg-primary text-white text-center">
+  <h1>gotta.no</h1>
+  <p>The things you just ...</p> 
+</div>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="../img/linkchain_400x400.jpeg" target="_blank">
-      <img src="../img/linkchain_400x400.jpeg" alt="dotBATman Logo" style="width:40px;" class="rounded-pill"> 
+    <a class="navbar-brand" href="/img/linkchain_400x400.jpeg" target="_blank">
+      <img src="/img/linkchain_400x400.jpeg" alt="dotBATman Logo" style="width:40px;" class="rounded-pill"> 
     </a>
     <ul class="navbar-nav">
       <li style="margin-top: 6px;color:white">
@@ -48,15 +49,15 @@
       </li>
       <li class="nav-item">
         <a class="nav-link active" href="https://x.com/dotBATman">@dotBATman</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="/index.html">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link" href="/introtake/index.html">Introtake</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+      <li class="nav-item" href="/introtake/about/index.html">
+        <a class="nav-link disabled" href="#">About</a>
       </li>
     </ul>
   </div>
@@ -64,32 +65,31 @@
 
 <div class="container mt-5">
   <div class="row">
-    <div class="col-8">
-      <div class="col-sm-8" style="text-align: left;">
-        <h2 id="IT000">Introtake #000</h2>
-        <h5>It's not a word, yet! <span class="badge bg-secondary">March 2024</span></h6>
-        <div>
-        <img class="img-fluid" style="max-height: 150px;max-width: 150px;" src="it000/it000.jpg" alt="Introtake logo"></div>
-      </div>
-      <div class="col-sm-8" style="text-align: left;">
-        <h2 id="IT001">Introtake #001</h2>
-        <h5>Taxonomy! <span class="badge bg-secondary">March 2024</span></h6>
-        <div>
-        <img class="img-fluid" style="max-height: 150px;max-width: 150px;" src="it001/it001.jpg" alt="it001 by Designer"></div>
-      </div>
-      <div class="col-sm-8" style="text-align: left;">
-        <h2 id="IT002">Introtake #002</h2>
-        <h5>Bow-Tie time <span class="badge bg-secondary">March 2024</span></h6>
-        <div>
-        <img class="img-fluid" style="max-height: 150px;max-width: 150px;" src="it002/it002.jpg" alt="it002 by Designer"></div>
-      </div>
-    </div>
-    <div class="col-4">
+    <div class="col-sm-4" id="AboutTor">
       <h2>About Me</h2>
       <h5>Tor aka dotBATman</h5>
       <div>
-      <img class="img-fluid" style="max-height: 300px" src="../img/boattrip.jpg" alt="Tor on a boattrip."></div>
+      <img class="img-fluid" style="max-height: 300px" src="/img/boattrip.jpg" alt="Tor on a boattrip."></div>
       <p>It doesn't take much to get a taste of freedom, an inflatable boat with a 6hp outboard engine goes a long way!</p>
+    </div>
+    <div class="col-sm-4" style="text-align: center;">
+      <h2>Introtake</h2>
+      <h5>It's not a word, yet! <span class="badge bg-secondary">March 2024</span></h5>
+      <div>
+        <a href="/introtake/index.html#AboutTor">
+          <img class="img-fluid" style="max-height: 300px" src="/img/introtakecard.jpeg" alt="Introtake logo">
+        </a>
+      </div>
+      <p>I answered a question on how I would prefer to receive information on a new topic: I'd like a short <b>Intro</b>duction that also presents the writer's <b>Take</b> and relevant resources.</p>
+      <p>And once I clicked Post I realized that this could work as a shortcut for a lot of (hopefully) useful posts from me.</p>
+    </div>
+    <div class="col-sm-4" style="text-align: center;">
+      <h2>Going Live</h2>
+      <h5>Site launch. <span class="badge bg-secondary">March 2024</span></h5>
+      <div>
+        <img class="img-fluid" style="max-height: 300px" src="/img/gottano.jpg" alt="gotta (k)no(w) logo"></div>
+        <p>I finally got around to using the gotta.no domain for something useful!</p>
+      <p>gotta.no is an obvious play on the phrase "Got To Know". Let's hope you find what you need here!</p>
     </div>
   </div>
 </div>
