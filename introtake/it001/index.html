@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>gotta.no</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function fnToggleDark()
+    {
+      if (document.documentElement.getAttribute('data-bs-theme') == 'dark') 
+      {
+        document.documentElement.setAttribute('data-bs-theme','light')
+      }
+      else 
+      {
+        document.documentElement.setAttribute('data-bs-theme','dark')
+      }  
+    }
+  </script>
+  <style>
+   .placeholdimg {
+     height: 150px;
+     background: #aaa;
+   }
+  </style>
+  <base target="_blank">
+</head>
+<body>
+
+  <div class="p-5 bg-primary text-white text-center">
+    <h1>gotta.no/introtake</h1>
+    <p>Quick <b>intro</b>ductions with my <b>Take</b></p> 
+  </div>
+  
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/img/linkchain_400x400.jpeg" target="_blank">
+      <img src="/img/linkchain_400x400.jpeg" alt="dotBATman Logo" style="width:40px;" class="rounded-pill"> 
+    </a>
+    <ul class="navbar-nav">
+      <li style="margin-top: 6px;color:white">
+        <svg onclick="fnToggleDark()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-circle-half" viewBox="0 0 16 16">
+          <title>Toggle Dark Mode</title>
+          <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"/>
+        </svg>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="https://x.com/dotBATman">@dotBATman</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-8" style="text-align: left;">
+      <h2 id="IT001">Introtake #001</h2>
+      <h5>Taxonomy! <span class="badge bg-secondary">June 2024</span></h5>
+      <p>The primary language in information security is, arguably, English. And, for those of us that do not have English as our first language we will find that documentation written in our separate languages still carry forward words and acronyms. And yes, there sure are a lot of acronyms!</p>
+
+      <p>So I wanted to light a torch for the word Taxonomy: The fact is that our use of a common set of words, the ever expanding list of information security technical terms, has helped us communicate effectively across the globe / cloud. And we seek to be effective, our area of interest and expertise is rapidly changing and has been integrated throughout our society.</p>
+
+      <p>I think we‘ve been fortunate to have idealistic, government and private organizations that help develop and share standards, best practices and registries for our area of interest. The Common Vulnerabilities and Exposures (CVE) system and the Common Weakness Enumeration category system are both examples that allow us to quickly share and improve on knowledge to remediate issues with our tech. </p>
+
+      <p>We use these identifiers when we approach vendors to check on their work to address vulnerabilities. And we can hold them responsible.</p>
+
+      <p>The terms, acronyms, RFCs and more have given us a mapping to find information. If you search for information on 5G you can find that in English but most likely also in your own language.</p>
+
+      <p>I have to mention the ISO organization which provides us with great tools in the form of standards that help us establish and align around catalogs of best practices. I’m just so frustrated that they are not available for free, surely there must be a better way to fund the standardization activities.</p>
+
+      <p>I’ve worked a lot with ISO27001, Information Security Management System and the set of controls it lists in Annex A, better described for implementation in ISO27002. I have found great benefit in that these two documents are mapped into other management and control frameworks. This lets us tap into advice from other organizations, such as NIST CSF, SOC2 and the Norwegian NCSC.  It also allows for audits and maturity work to be performed against the management and control system an organization has chosen to use.</p>
+
+      <p>By mapping standards and control/management frameworks we can avoid maintaining a collection of policies or procedures for each of the regulations or standards a global organization is asked to comply with.</p>
+
+      <h4>Fun Facts:</h2>
+      <p>I think the following helps prove my point that information security is a global activity even if a lot of information is written in English:</p>
+      <ul>
+        <li>The first SMS (Short Message System) / text message  was sent in France over a European invention called GSM (Global System for Mobile Communications).</li>
+        <li>GSM succeeded the world's first automatic mobile phone service; Nordic Mobile Technology (NMT)</li>
+        <li>And we listen to our podcasts via Bluetooth, a tech that is named after a Danish King.</li>
+      </ul>
+    </div>
+    <div class="col-4">
+      <img class="img-fluid" style="max-height: 150px;max-width: 150px;" src="/introtake/it001/it001.jpg" alt="it001 by Designer">
+    </div>  
+  </div>
+  <h3>Read more:</h3>
+  <ol>
+    <li><a href="https://en.wikipedia.org/wiki/">https://en.wikipedia.org/wiki/</a> - 
+    <a href="https://en.wikipedia.org/wiki/Taxonomy">Taxonomy</a>&nbsp;
+    <a href="https://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures">CVE</a>&nbsp;
+    <a href="https://en.wikipedia.org/wiki/Common_Weakness_Enumeration">CWE</a>&nbsp;
+    <a href="https://en.wikipedia.org/wiki/SMS">SMS</a>&nbsp;
+    <a href="https://en.wikipedia.org/wiki/GSM">GSM</a></li>
+    <li><a href="https://www.nist.gov/">https://www.nist.gov</a> - <a href="https://www.nist.gov/cyberframework">NIST Cyber Security Framework (CSF) 2.0</a></li>
+    <li><a href="https://www.nsm.no/">https://www.nsm.no</a> - <a href="https://nsm.no/regelverk-og-hjelp/rad-og-anbefalinger/grunnprinsipper-for-ikt-sikkerhet/ta-i-bruk-grunnprinsippene/">NSMs Grunnprinsipper for IKT sikkerhet v2.1</a></li>
+    <li><a href="https://www.iso.org/">https://www.iso.org</a> - <a href="https://www.iso.org/sectors/it-technologies">iso.org > sectors > IT Technologies</a></li>
+    <li><a href="https://www.mitre.org/">https://www.mitre.org</a> - <a href="https://attack.mitre.org/">MITRE ATT&CK!®️</a>&nbsp;<a href="https://defend.mitre.org/">MITRE D3FEND™️</a></li>
+    <li><a href="https://www.ericsson.com/en/about-us/history/changing-the-world/the-nordics-take-charge/the-launch-of-nmt">https://www.ericsson.com/en/about-us/history/changing-the-world/the-nordics-take-charge/the-launch-of-nmt</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Bluetooth">https://en.wikipedia.org/wiki/Bluetooth</a></li>
+  </ol>
+  #language #InfoSec #Taxonomy #Acronyms
+
+</div>
+
+<div class="mt-5 p-4 bg-dark text-white text-center">
+  <p><em>Tor Vigesdal - 2024</em></p>
+</div>
+
+</body>
+</html>
