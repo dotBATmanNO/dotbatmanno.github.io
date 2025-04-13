@@ -1,14 +1,14 @@
-<svg width="1920" height="1024" xmlns="http://www.w3.org/2000/svg">
-
+<svg width="1550" height="950" xmlns="http://www.w3.org/2000/svg">
  <g>
   <title>Layer 1</title>
-  <path fill="#fff" id="Layer_1" d="m1703.1,1024.2l0,382.3l-470.4,-332.1c14.8,-35.2 22.9,-73.8 22.9,-114.4s-8.2,-79.2 -22.9,-114.4l470.4,-332.1l0,510.7zm-1486.2,-128.4l0,510.7l470.4,-332.1c-14.8,-35.2 -23,-73.8 -23,-114.4s8.2,-79.2 23,-114.4l-470.4,-332.1l0,382.3z" class="st0"/>
-  <path fill="#fff" id="Layer_3" d="m1232.7,845.6c14.8,35.2 22.9,73.8 22.9,114.4s-8.2,79.2 -22.9,114.4c-44.7,106.4 -150,181.2 -272.7,181.2s-228,-74.8 -272.7,-181.2c-14.8,-35.2 -23,-73.8 -23,-114.4s8.2,-79.2 23,-114.4c44.7,-106.5 150,-181.2 272.7,-181.2s227.9,74.7 272.7,181.2z" class="st0"/>
-  <path stroke="#231f20" id="svg_1" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="50" fill="none" d="m1095.75229,903.06119c7.36621,17.51963 11.39772,36.73151 11.39772,56.93881s-4.08128,39.41918 -11.39772,56.93881c-22.24794,52.95708 -74.65753,90.1863 -135.72739,90.1863s-113.47945,-37.22922 -135.72739,-90.1863c-7.36621,-17.51963 -11.44749,-36.73151 -11.44749,-56.93881s4.08128,-39.41918 11.44749,-56.93881c22.24794,-53.00685 74.65753,-90.1863 135.72739,-90.1863s113.42968,37.17945 135.72739,90.1863z" class="st1"/>
-  <path stroke="#231f20" id="svg_2" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="50" fill="none" d="m1054.39999,1074.2l0.41345,0.2l648.28658,332.1l0,-893l-648.28658,332.1l-0.41345,0.2" class="st1"/>
-  <path stroke="#231f20" id="svg_3" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="50" fill="none" d="m865.60003,845.8l-0.41345,-0.2l-648.28658,-332.1l0,893l648.28658,-332.1l0.41345,-0.2" class="st1"/>
-  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="'Open Sans'" font-size="48" id="svg_5" y="978.5" x="1203" stroke-width="0" stroke="#231f20" fill="#000000">THROUGH &amp; OUT</text>
-  <text style="cursor: move;" font-weight="bold" xml:space="preserve" text-anchor="start" font-family="'Open Sans'" font-size="48" id="svg_6" y="978.5" x="320" stroke-width="0" stroke="#231f20" fill="#000000">IN</text>
-  <text transform="matrix(1 0 0 1 0 0)" style="cursor: move;" font-weight="bold" xml:space="preserve" text-anchor="start" font-family="'Open Sans'" font-size="48" id="svg_7" y="978.5" x="886.94922" stroke-width="0" stroke="#231f20" fill="#000000">EVENT</text>
+  <path class="st0" d="m1521.09999,539.2l0,382.3l-470.4,-332.1c14.8,-35.2 22.9,-73.8 22.9,-114.4s-8.2,-79.2 -22.9,-114.4l470.4,-332.1l0,510.7zm-1486.2,-128.4l0,510.7l470.4,-332.1c-14.8,-35.2 -23,-73.8 -23,-114.4s8.2,-79.2 23,-114.4l-470.4,-332.1l0,382.3z" id="Layer_1" fill="#fff"/>
+  <path class="st0" d="m1050.69999,360.6c14.8,35.2 22.9,73.8 22.9,114.4s-8.2,79.2 -22.9,114.4c-44.7,106.4 -150,181.2 -272.7,181.2s-228,-74.8 -272.7,-181.2c-14.8,-35.2 -23,-73.8 -23,-114.4s8.2,-79.2 23,-114.4c44.7,-106.5 150,-181.2 272.7,-181.2s227.9,74.7 272.7,181.2z" id="Layer_3" fill="#fff"/>
+  <path class="st1" d="m913.75228,418.06119c7.36621,17.51963 11.39772,36.73151 11.39772,56.93881s-4.08128,39.41918 -11.39772,56.93881c-22.24794,52.95708 -74.65753,90.1863 -135.72739,90.1863s-113.47945,-37.22922 -135.72739,-90.1863c-7.36621,-17.51963 -11.44749,-36.73151 -11.44749,-56.93881s4.08128,-39.41918 11.44749,-56.93881c22.24794,-53.00685 74.65753,-90.1863 135.72739,-90.1863s113.42968,37.17945 135.72739,90.1863z" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" id="svg_1" stroke="#231f20"/>
+  <path class="st1" d="m872.39998,589.2l0.41345,0.2l648.28658,332.1l0,-893l-648.28658,332.1l-0.41345,0.2" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" id="svg_2" stroke="#231f20"/>
+  <path class="st1" d="m683.60002,360.8l-0.41345,-0.2l-648.28658,-332.1l0,893l648.28658,-332.1l0.41345,-0.2" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" id="svg_3" stroke="#231f20"/>
+  <text fill="#000000" stroke="#231f20" stroke-width="0" x="1021" y="493.5" id="svg_5" font-size="48" font-family="'Open Sans'" text-anchor="start" xml:space="preserve" font-weight="bold">THROUGH &amp; OUT</text>
+  <text fill="#000000" stroke="#231f20" stroke-width="0" x="138" y="493.5" id="svg_6" font-size="48" font-family="'Open Sans'" text-anchor="start" xml:space="preserve" font-weight="bold">IN</text>
+  <text fill="#000000" stroke="#231f20" stroke-width="0" x="705" y="493.5" id="svg_7" font-size="48" font-family="'Open Sans'" text-anchor="start" xml:space="preserve" font-weight="bold">EVENT</text>
  </g>
+
 </svg>
