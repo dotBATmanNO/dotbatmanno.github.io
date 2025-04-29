@@ -11,6 +11,6 @@ Preferred-Languages: en, nb-NO
 Acknowledgments: https://gotta.no/security-acknowledgments.txt
 
 # Protection and validity of this security.txt file
-Expires: Fri, 30 Sep 2025 18:00:00 +0100
+Expires: Fri, 30 Sep 2025 12:00:00 +0100
 Canonical: https://gotta.no/.well-known/security.txt
 Encryption: https://gotta.no/.well-known/publickey.txt
