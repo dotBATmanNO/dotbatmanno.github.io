@@ -1,3 +1,7 @@
+---
+layout: none
+permalink: .well-known/security.txt
+---
 # Our Incident Response Team address
 Contact: mailto:tor@dotbatman.com
 
