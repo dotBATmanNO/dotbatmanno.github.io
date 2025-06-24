@@ -35,12 +35,12 @@ I currently do not offer a reward in the form of money or give-aways.
 Your work and the high integrity that leads to responsible disclosure is duly respected.
 I will offer a place on the Acknowledgments page: https://gotta.no/security-acknowledgments.txt
 
-# How to Contact us
-Our official communication channel is via email to tor@dotbatman.com
+# How to Contact me
+The official communication channel is via email to tor@dotbatman.com
 
 # Ground Rules
-To encourage  research and to avoid any confusion between legitimate research and malicious attack, 
-we ask that you attempt, in good faith, to:
+To encourage research and to avoid any confusion between legitimate research and malicious attack, 
+I ask that you attempt, in good faith, to:
 - Play by the rules, including this policy any other relevant agreements
 - Promptly report any vulnerability you have discovered
 - Avoid breaking the Confidentiality, Integrity or Availability of the site and data
@@ -52,8 +52,8 @@ For responsible disclosure related to the parts of this site that is within
 scope I will not take legal action against you. You are expected, as always,
 to comply with all applicable laws. If legal action is initiated by a 
 third party against you and you have complied with this policy,
-we will take steps to make it known that your actions were conducted in 
-compliance with this policy. 
+I will take steps to make it known that your actions were conducted in 
+compliance with this policy. Alas, I am not a lawyer. 
 
 If at any time you have concerns or are uncertain whether your 
 security research is consistent with this policy, please submit 
