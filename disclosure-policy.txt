@@ -1,0 +1,56 @@
+# gotta.no Responsible Disclosure Policy
+This site is a side project, somewhere to post my introtakes (INTROoductions with my TAKE)
+Through responsible vulnerability research you can help make the internet a safer place.
+
+# Mutual Expectations
+When working with me you can expect that I:
+- Respond in a timely manner to your report
+- Work to understand and validate your findings
+- Recognize your contribution to improving the security of the site
+- Acknowledge your finding on my Security Acknoledgements page if you are the first to report a unique vulnerability
+
+# Scope
+Only configuration managed by or systems operated / coded / written by myself for use for this site are in scope.
+I am using cloud services to host this site, these services will have their own Policy for security research
+and responsible disclosure and are not covered by this policy.
+
+Please contact me at tor@dotbatman.com if you have any questions about scope.
+
+# Submission of report
+At a minimum, please include the following information with your initial submission:
+- Vulnerability classification (Critical/High/Medium/Low)
+- Short description
+- Steps to reproduce (please be as detailed as possible; include screenshots if applicable)
+- Asset/URL
+- Date and time of your testing
+- Preferred contact method (e.g. phone, email)
+In a feature setup I will facilitate encryption of the report using a public key listed in security.txt 
+
+# Rewards
+I currently do not offer a reward in the form of money or give-aways. 
+Your work and the high integrity that leads to responsible disclosure is duly respected.
+I will offer a place on the Acknowledgments page: https://gotta.no/security-acknowledgments.txt
+
+# How to Contact us
+Our official communication channel is via email to tor@dotbatman.com
+
+# Ground Rules
+To encourage  research and to avoid any confusion between legitimate research and malicious attack, 
+we ask that you attempt, in good faith, to:
+- Play by the rules, including this policy any other relevant agreements
+- Promptly report any vulnerability you have discovered
+- Avoid breaking the Confidentiality, Integrity or Availability of the site and data
+- Avoid violating the privacy of others
+- Not engage in extortion.
+
+# Safe Harbor
+For responsible disclosure related to the parts of this site that is within 
+scope I will not take legal action against you. You are expected, as always,
+to comply with all applicable laws. If legal action is initiated by a 
+third party against you and you have complied with this policy,
+we will take steps to make it known that your actions were conducted in 
+compliance with this policy. 
+
+If at any time you have concerns or are uncertain whether your 
+security research is consistent with this policy, please submit 
+a report through the Provided Channels before going any further.
