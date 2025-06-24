@@ -1,3 +1,7 @@
+---
+layout: none
+permalink: .well-known/disclosure-policy.txt
+---
 # gotta.no Responsible Disclosure Policy
 This site is a side project, somewhere to post my introtakes (INTROoductions with my TAKE)
 Through responsible vulnerability research you can help make the internet a safer place.

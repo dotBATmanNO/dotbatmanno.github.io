@@ -6,7 +6,7 @@ permalink: .well-known/security.txt
 Contact: mailto:tor@dotbatman.com
 
 # Our Responsible Disclosure Policy
-Policy: https://gotta.no/disclosure-policy.txt
+Policy: https://gotta.no/.well-known/disclosure-policy.txt
 
 # Our preferred languages are English and Norwegian
 Preferred-Languages: en, nb-NO
@@ -17,4 +17,4 @@ Acknowledgments: https://gotta.no/security-acknowledgments.txt
 # Protection and validity of this security.txt file
 Expires: Fri, 30 Sep 2025 12:00:00 +0100
 Canonical: https://gotta.no/.well-known/security.txt
-Encryption: https://gotta.no/.well-known/publickey.txt
+#Encryption: https://gotta.no/.well-known/publickey.txt
