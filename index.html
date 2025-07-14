@@ -33,6 +33,24 @@
    a:hover {
      text-decoration: underline;
    }
+   a.external-link::after {
+    content: " 🔗"; /* Adds an icon after the link */
+    font-size: 0.9em;
+    margin-left: 4px;
+   }
+
+   a.external-link {
+    color: #0d6efd; /* Bootstrap primary blue */
+    text-decoration: underline;
+    transition: color 0.2s ease;
+   }
+
+   a.external-link:hover {
+    color: #6610f2; /* Bootstrap purple on hover */
+    text-decoration: none;
+   }
+</style>
+
   </style>
 </head>
 <body>
@@ -95,6 +113,22 @@
 <div class="mt-5 p-4 bg-dark text-white text-center">
   <p><em>Tor Vigesdal - 2025</em></p>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentHost = window.location.host;
+    const links = document.querySelectorAll("a[href]");
+
+    links.forEach(link => {
+      const url = new URL(link.href);
+      if (url.host !== currentHost) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
+        link.classList.add("external-link");
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
