@@ -8,11 +8,11 @@ const OFFLINE_FILES = [
   '/safety/img/icon-192.png',
   '/safety/img/icon-512.png',
   '/safety/apple-touch-icon.png',
-  'safety/android-chrome-192x192.png',
-  'safety/android-chrome-512x512.png',
-  'safety/favicon-16x16.png',
-  'safety/favicon-32x32.png',
-  'safety/site.webmanifest'
+  '/safety/android-chrome-192x192.png',
+  '/safety/android-chrome-512x512.png',
+  '/safety/favicon-16x16.png',
+  '/safety/favicon-32x32.png',
+  '/safety/site.webmanifest'
 ];
 
 // Install and cache essential files
