@@ -1,9 +1,9 @@
 {
-  "name": "Gotta Know",
+  "name": "Gotta Know About Safety",
   "short_name": "Gotta.no",
-  "description": "A versatile HTML5 app by Tor, built for installability, offline use, and widget integration.",
-  "start_url": "/index.html?source=pwa",
-  "scope": "/",
+  "description": "A Safety Guide app by Tor, built for installability, offline use, and widget integration.",
+  "start_url": "/safety/index.html?source=pwa",
+  "scope": "/safety/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#000000",
