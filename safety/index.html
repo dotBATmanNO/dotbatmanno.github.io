@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emergency Info – Gotta.no</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/safety.css">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Gotta.no">
+  <link rel="apple-touch-icon" href="img/icon-192.png">
+</head>
+<body>
+  <header>
+    <h1 id="title">Emergency Contacts</h1>
+    <button onclick="toggleLang()">🇳🇴 / 🇬🇧</button>
+  </header>
+
+  <main id="content">
+    <section id="english">
+      <h2>Essential Numbers</h2>
+      <ul>
+        <li>🚨 Police: <strong>112</strong></li>
+        <li>🚑 Medical: <strong>113</strong></li>
+        <li>🔥 Fire: <strong>110</strong></li>
+      </ul>
+      <p>Visit <a href="https://www.dsb.no" target="_blank">dsb.no</a> for civil protection info.</p>
+    </section>
+
+    <section id="norwegian" style="display:none;">
+      <h2>Viktige nødnummer</h2>
+      <ul>
+        <li>🚨 Politi: <strong>112</strong></li>
+        <li>🚑 Medisinsk hjelp: <strong>113</strong></li>
+        <li>🔥 Brannvesen: <strong>110</strong></li>
+      </ul>
+      <p>Besøk <a href="https://www.dsb.no" target="_blank">dsb.no</a> for informasjon om beredskap.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Offline-ready. Last updated: October 2025</p>
+  </footer>
+
+  <script>
+    function toggleLang() {
+      const en = document.getElementById('english');
+      const no = document.getElementById('norwegian');
+      const title = document.getElementById('title');
+      if (en.style.display === 'none') {
+        en.style.display = 'block';
+        no.style.display = 'none';
+        title.textContent = 'Emergency Contacts';
+      } else {
+        en.style.display = 'none';
+        no.style.display = 'block';
+        title.textContent = 'Nødinfo';
+      }
+    }
+  </script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/safety/sw.js')
+      .then(() => console.log('Safety Service Worker registered'))
+      .catch(err => console.error('SW error:', err));
+  }
+</script>
+
+</body>
+</html>
