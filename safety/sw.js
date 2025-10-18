@@ -1,11 +1,18 @@
 const CACHE_NAME = 'gotta-safety-v1';
 const OFFLINE_FILES = [
+  '/favicon.ico',
+  '/safety/favicon.ico',
   '/safety/',
   '/safety/index.html',
   '/safety/css/safety.css',
   '/safety/img/icon-192.png',
   '/safety/img/icon-512.png',
-  '/safety/img/safety.png'
+  '/safety/apple-touch-icon.png',
+  'safety/android-chrome-192x192.png',
+  'safety/android-chrome-512x512.png',
+  'safety/favicon-16x16.png',
+  'safety/favicon-32x32.png',
+  'safety/site.webmanifest'
 ];
 
 // Install and cache essential files
