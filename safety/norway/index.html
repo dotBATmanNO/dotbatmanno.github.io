@@ -25,50 +25,60 @@
 
 </head>
 <body>
-  <main>
-    <section class="card">
-      <h1>🌍 Universal Emergency Info</h1>
-      <p class="intro">Dial <strong>112</strong> for emergency services. Recognized across most mobile phones and countries.</p>
+  <header>
+    <h1 id="title">Emergency Contacts</h1>
+    <button onclick="toggleLang()">🇳🇴 / 🇬🇧</button>
+  </header>
 
-      <div class="languages">
-        <div class="lang"><span>🇬🇧</span> <strong>English:</strong> Dial 112 for emergency services.</div>
-        <div class="lang"><span>🇳🇴</span> <strong>Norsk:</strong> Ring 112 for nødhjelp.</div>
-        <div class="lang"><span>🇫🇷</span> <strong>Français:</strong> Appelez le 112 pour les urgences.</div>
-        <div class="lang"><span>🇩🇪</span> <strong>Deutsch:</strong> Notruf: 112.</div>
-        <div class="lang"><span>🇪🇸</span> <strong>Español:</strong> Llama al 112 para emergencias.</div>
-      </div>
+  <main id="content">
+    <section id="english">
+      <h2>Essential Numbers</h2>
+      <ul>
+        <li>🚨 Police: <strong>112</strong></li>
+        <li>🚑 Medical: <strong>113</strong></li>
+        <li>🔥 Fire: <strong>110</strong></li>
+      </ul>
+      <p>Visit <a href="https://www.dsb.no/en/" target="_blank">dsb.no</a> for civil protection info.</p>
+    </section>
 
-      <a href="norway/index.html" class="drilldown-button">🇳🇴 View Norway-specific info</a>
+    <section id="norwegian" style="display:none;">
+      <h2>Viktige nødnummer</h2>
+      <ul>
+        <li>🚨 Politi: <strong>112</strong></li>
+        <li>🚑 Medisinsk hjelp: <strong>113</strong></li>
+        <li>🔥 Brannvesen: <strong>110</strong></li>
+      </ul>
+      <p>Besøk <a href="https://www.dsb.no" target="_blank">dsb.no</a> for informasjon om beredskap.</p>
     </section>
   </main>
 
   <!-- Trigger Button -->
-  <div class="container" style="margin-top: 1rem;">
-    <button id="toggleShare" class="share-button">Share with a friend</button>
-  </div>
+<div class="container" style="margin-top: 1rem;">
+  <button id="toggleShare" class="share-button">Share with a friend</button>
+</div>
 
-  <!-- Expandable Share Box -->
-  <div id="shareBox" class="share-box" hidden>
-    <div class="share-header">
-      <h4>Accessing This Site</h4>
-      <button id="closeShare" class="close-button">&times;</button>
-    </div>
-    <div class="share-body">
-      <ol>
-        <li>
-          Scan this QR code to visit the site</br>
-          <img src="/safety/img/qrshare.png" alt="QR Code for sharing" style="width:90px;height:90px;">
-        </li>
-        <li>
-          Or, type in / share this link:<br>
-          <a href="https://gotta.no/safety/" target="_blank">https://gotta.no/safety/</a>
-        </li>
-        <li>
-          Finally: Add the site to your home screen for offline access.
-        </li>
-      </ol>
-    </div>
+<!-- Expandable Share Box -->
+<div id="shareBox" class="share-box" hidden>
+  <div class="share-header">
+    <h4>Accessing This Site</h4>
+    <button id="closeShare" class="close-button">&times;</button>
   </div>
+  <div class="share-body">
+    <ol>
+      <li>
+        Scan this QR code to visit the site</br>
+        <img src="/safety/img/qrshare.png" alt="QR Code for sharing" style="width:90px;height:90px;">
+      </li>
+      <li>
+        Or, type in / share this link:<br>
+        <a href="https://gotta.no/safety/" target="_blank">https://gotta.no/safety/</a>
+      </li>
+      <li>
+        Finally: Add the site to your home screen for offline access.
+      </li>
+    </ol>
+  </div>
+</div>
 
   <footer>  
     <p>Offline-ready. Last updated: October 2025.</p>

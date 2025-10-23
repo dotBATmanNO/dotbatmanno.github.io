@@ -14,6 +14,8 @@ const OFFLINE_FILES = [
   '/safety/favicon-32x32.png',
   '/safety/favicon.ico',
   '/safety/manifest.json',
+  "/safety/norway/",
+  "/safety/norway/index.html"
 ];
 
 // Install and cache essential files
