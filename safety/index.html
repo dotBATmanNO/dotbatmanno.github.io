@@ -97,17 +97,16 @@
       }
     }
     if ('serviceWorker' in navigator) {
-      const toggleBtn = document.getElementById("toggleShare");
-      const closeBtn = document.getElementById("closeShare");
-      const shareBox = document.getElementById("shareBox");
+    navigator.serviceWorker.register('/safety/sw.js')
+      .then(() => console.log('Safety Service Worker registered'))
+      .catch(err => console.error('SW error:', err));
+    }
+    const toggleBtn = document.getElementById("toggleShare");
+    const closeBtn = document.getElementById("closeShare");
+    const shareBox = document.getElementById("shareBox");
 
-      toggleBtn.onclick = () => shareBox.hidden = false;
-      closeBtn.onclick = () => shareBox.hidden = true;
-
-      navigator.serviceWorker.register('/safety/sw.js')
-        .then(() => console.log('Safety Service Worker registered'))
-        .catch(err => console.error('SW error:', err));
-    }    
+    toggleBtn.onclick = () => shareBox.hidden = false;
+    closeBtn.onclick = () => shareBox.hidden = true;
   </script>
 
 </body>
