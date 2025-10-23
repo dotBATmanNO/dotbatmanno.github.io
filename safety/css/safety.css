@@ -28,3 +28,34 @@ button {
   padding: 0.5em 1em;
   cursor: pointer;
 }
+.share-box {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem auto;
+  max-width: 500px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.share-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.share-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.share-button:hover {
+  background-color: #0056b3;
+}
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}

@@ -23,7 +23,15 @@
   <!-- Styles -->
   <link rel="stylesheet" href="css/safety.css">
 
-</head>
+  <script>
+    const toggleBtn = document.getElementById("toggleShare");
+    const closeBtn = document.getElementById("closeShare");
+    const shareBox = document.getElementById("shareBox");
+
+    toggleBtn.onclick = () => shareBox.hidden = false;
+    closeBtn.onclick = () => shareBox.hidden = true;
+  </script>
+
 </head>
 <body>
   <header>
@@ -53,47 +61,30 @@
     </section>
   </main>
 
-  <div class="container mt-3">
-    
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-      Share with a friend.
-    </button>
-  
+  <!-- Trigger Button -->
+<div class="container" style="margin-top: 1rem;">
+  <button id="toggleShare" class="share-button">Share with a friend</button>
+</div>
+
+<!-- Expandable Share Box -->
+<div id="shareBox" class="share-box" hidden>
+  <div class="share-header">
+    <h4>Share This Site</h4>
+    <button id="closeShare" class="close-button">&times;</button>
   </div>
-
-  <!-- The Modal -->
-  <div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Share This Site</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-
-        <!-- Modal body -->
-        <div class="modal-body">
-          <ol>
-            <li>
-              Scan this QR code to visit the site&nbsp;
-              <img src="img/qrshare.png" alt="QR Code for sharing" style="width:90px;height:90px;">
-            </li>
-            <li>
-              Or copy and share this link: </br>
-              https://gotta.no/safety/
-            </li>
-          </ol>
-        </div>
-
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        </div>
-
-      </div>
-    </div>
+  <div class="share-body">
+    <ol>
+      <li>
+        Scan this QR code to visit the site&nbsp;
+        <img src="img/qrshare.png" alt="QR Code for sharing" style="width:90px;height:90px;">
+      </li>
+      <li>
+        Or copy and share this link:<br>
+        <a href="https://gotta.no/safety/" target="_blank">https://gotta.no/safety/</a>
+      </li>
+    </ol>
   </div>
+</div>
 
   <footer>  
     <p>Offline-ready. Last updated: October 2025.</p>
