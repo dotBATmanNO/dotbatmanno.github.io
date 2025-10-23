@@ -53,11 +53,50 @@
     </section>
   </main>
 
-  <footer>
+  <div class="container mt-3">
+    
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+      Share with a friend.
+    </button>
+  
+  </div>
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Share This Site</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <ol>
+            <li>
+              Scan this QR code to visit the site&nbsp;
+              <img src="img/qrshare.png" alt="QR Code for sharing" style="width:90px;height:90px;">
+            </li>
+            <li>
+              Or copy and share this link: </br>
+              https://gotta.no/safety/
+            </li>
+          </ol>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>  
     <p>Offline-ready. Last updated: October 2025.</p>
-    <p>Share with a friend - it will require network access on first pass.</p>
-    <p><img src="img/qrshare.png" alt="QR Code for sharing" style="width:90px;height:90px;"></p>
-    <p>Or you could type: https://gotta.no/safety/</p>
   </footer>
 
   <script>
