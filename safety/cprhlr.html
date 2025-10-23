@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CPR / HLR Guide – Gotta.no</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/safety.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <main>
+    <section class="card">
+      <h1>🫀 CPR / HLR – Universal Guide</h1>
+      <p class="intro">
+        Learn how to perform cardiopulmonary resuscitation (CPR / HLR) in emergencies. These steps apply globally and are based on European Resuscitation Council guidelines.
+      </p>
+
+      <ol class="steps">
+        <li>Check responsiveness and breathing.</li>
+        <li>Call <a href="tel:112"><strong>112</strong></a> or your local emergency number.</li>
+        <li>Start chest compressions: <strong>30 compressions</strong> followed by <strong>2 rescue breaths</strong>.</li>
+        <li>Repeat until help arrives or the person recovers.</li>
+      </ol>
+
+      <div class="beat-box">
+        <p><strong>Compression rhythm:</strong> 100–120 beats per minute.</p>
+        <p>Use a steady beat like a ticking clock or a metronome. Try humming a rhythm like:</p>
+        <p class="beat">🕒 Tick-tick-tick-tick… (about 2 beats per second)</p>
+
+        <div class="beat-controls">
+          <button onclick="playBeat()">▶ Start CPR Beat</button>
+          <button onclick="stopBeat()">⏹ Stop</button>
+        </div>
+      </div>
+
+      <a href="hlr-norway.html" class="drilldown-button">🇳🇴 View Norway-specific CPR guide</a>
+    </section>
+  </main>
+
+  <script>
+    let context = new (window.AudioContext || window.webkitAudioContext)();
+    let isPlaying = false;
+    let interval;
+
+    function playBeat() {
+      if (isPlaying) return;
+      isPlaying = true;
+      interval = setInterval(() => {
+        let osc = context.createOscillator();
+        osc.frequency.value = 1000;
+        osc.connect(context.destination);
+        osc.start();
+        osc.stop(context.currentTime + 0.05);
+      }, 600); // ~100 BPM
+    }
+
+    function stopBeat() {
+      isPlaying = false;
+      clearInterval(interval);
+    }
+  </script>
+</body>
+</html>
