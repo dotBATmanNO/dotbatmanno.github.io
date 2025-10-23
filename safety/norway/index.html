@@ -1,116 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Gotta.no</title>
-
-  <!-- PWA Manifest -->
-  <link rel="manifest" href="/safety/manifest.json">
-
-  <!-- Universal mobile web app support -->
-  <meta name="mobile-web-app-capable" content="yes">
-
-  <!-- Theme color for browser UI -->
-  <meta name="theme-color" content="#000000">
-
-  <!-- Favicon and app icons -->
-  <link rel="icon" href="/safety/img/icon-192.png" sizes="192x192">
-  <link rel="apple-touch-icon" href="/safety/img/icon-192.png">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="/safety/css/safety.css">
-
+  <title>Nødinfo for Norge – Gotta.no</title>
+  <link rel="manifest" href="../manifest.json">
+  <link rel="stylesheet" href="../css/safety.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
-  <header>
-    <h1 id="title">Emergency Contacts</h1>
-    <button onclick="toggleLang()">🇳🇴 / 🇬🇧</button>
-  </header>
+  <main>
+    <section class="card">
+      <h1>🇳🇴 Nødinfo for Norge</h1>
+      <p class="intro">Her finner du viktig informasjon om hva du skal gjøre i ulike nødsituasjoner i Norge. Alt innhold er tilgjengelig offline og basert på pålitelige kilder.</p>
 
-  <main id="content">
-    <section id="english">
-      <h2>Essential Numbers</h2>
-      <ul>
-        <li>🚨 Police: <strong>112</strong></li>
-        <li>🚑 Medical: <strong>113</strong></li>
-        <li>🔥 Fire: <strong>110</strong></li>
-      </ul>
-      <p>Visit <a href="https://www.dsb.no/en/" target="_blank">dsb.no</a> for civil protection info.</p>
-    </section>
+      <div class="grid">
+        <a href="cprhlr.html" class="grid-item">
+          <img src="../img/cpr-icon.svg" alt="CPR icon" width="48">
+          <h2>🫀 HLR</h2>
+          <p>Hjerte- og lungeredning med rytmehjelp</p>
+        </a>
 
-    <section id="norwegian" style="display:none;">
-      <h2>Viktige nødnummer</h2>
-      <ul>
-        <li>🚨 Politi: <strong>112</strong></li>
-        <li>🚑 Medisinsk hjelp: <strong>113</strong></li>
-        <li>🔥 Brannvesen: <strong>110</strong></li>
-      </ul>
-      <p>Besøk <a href="https://www.dsb.no" target="_blank">dsb.no</a> for informasjon om beredskap.</p>
+        <a href="fire.html" class="grid-item">
+          <img src="../img/fire-icon.svg" alt="Fire icon" width="48">
+          <h2>🔥 Brann</h2>
+          <p>Evakuering, varsling og brannslukking</p>
+        </a>
+
+        <a href="weather.html" class="grid-item">
+          <img src="../img/weather-icon.svg" alt="Weather icon" width="48">
+          <h2>🌪️ Ekstremvær</h2>
+          <p>Varsler og tiltak ved uvær</p>
+        </a>
+
+        <a href="power.html" class="grid-item">
+          <img src="../img/power-icon.svg" alt="Power icon" width="48">
+          <h2>⚡ Strømbrudd</h2>
+          <p>Hva du bør ha klart og hvordan du varsler</p>
+        </a>
+
+        <a href="nature.html" class="grid-item">
+          <img src="../img/nature-icon.svg" alt="Nature icon" width="48">
+          <h2>🧭 Natur</h2>
+          <p>Trygg ferdsel og hjelp om en går seg vill</p>
+        </a>
+
+        <a href="numbers.html" class="grid-item">
+          <img src="../img/phone-icon.svg" alt="Phone icon" width="48">
+          <h2>☎️ Nødnumre</h2>
+          <p>Alle viktige telefonnumre i Norge</p>
+        </a>
+      </div>
+
+      <a href="../index.html" class="drilldown-button">🌍 Tilbake til universell nødinfo</a>
     </section>
   </main>
-
-  <!-- Trigger Button -->
-<div class="container" style="margin-top: 1rem;">
-  <button id="toggleShare" class="share-button">Share with a friend</button>
-</div>
-
-<!-- Expandable Share Box -->
-<div id="shareBox" class="share-box" hidden>
-  <div class="share-header">
-    <h4>Accessing This Site</h4>
-    <button id="closeShare" class="close-button">&times;</button>
-  </div>
-  <div class="share-body">
-    <ol>
-      <li>
-        Scan this QR code to visit the site</br>
-        <img src="/safety/img/qrshare.png" alt="QR Code for sharing" style="width:90px;height:90px;">
-      </li>
-      <li>
-        Or, type in / share this link:<br>
-        <a href="https://gotta.no/safety/" target="_blank">https://gotta.no/safety/</a>
-      </li>
-      <li>
-        Finally: Add the site to your home screen for offline access.
-      </li>
-    </ol>
-  </div>
-</div>
-
-  <footer>  
-    <p>Offline-ready. Last updated: October 2025.</p>
-  </footer>
-
-  <script>
-    function toggleLang() {
-      const en = document.getElementById('english');
-      const no = document.getElementById('norwegian');
-      const title = document.getElementById('title');
-      if (en.style.display === 'none') {
-        en.style.display = 'block';
-        no.style.display = 'none';
-        title.textContent = 'Emergency Contacts';
-      } else {
-        en.style.display = 'none';
-        no.style.display = 'block';
-        title.textContent = 'Nødinfo';
-      }
-    }
-    if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/safety/sw.js')
-      .then(() => console.log('Safety Service Worker registered'))
-      .catch(err => console.error('SW error:', err));
-    }
-    const toggleBtn = document.getElementById("toggleShare");
-    const closeBtn = document.getElementById("closeShare");
-    const shareBox = document.getElementById("shareBox");
-
-    toggleBtn.onclick = () => shareBox.hidden = false;
-    closeBtn.onclick = () => shareBox.hidden = true;
-  </script>
-
 </body>
 </html>

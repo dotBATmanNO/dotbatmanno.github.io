@@ -106,3 +106,23 @@ button {
   margin: 0.5em 0 0;
   font-size: 1em;
 }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1em;
+  margin-top: 2em;
+}
+
+.grid-item {
+  background: #111;
+  padding: 1em;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 0 6px #333;
+}
+
+.grid-item img {
+  margin-bottom: 0.5em;
+}
