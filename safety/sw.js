@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gotta-safety-v1';
+const CACHE_NAME = 'gotta-safety-v101';
 const OFFLINE_FILES = [
   '/favicon.ico',
   '/safety/',
