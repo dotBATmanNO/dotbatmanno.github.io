@@ -1,13 +1,13 @@
-const CACHE_NAME = 'gotta-safety-v101';
+const CACHE_NAME = 'gotta-safety-v102';
 const OFFLINE_FILES = [
   '/favicon.ico',
   '/safety/',
   '/safety/index.html',
   '/safety/css/safety.css',
-  '/safety/img/qrshare.png',
   '/safety/img/icon-192.png',
   '/safety/img/icon-512.png',
   '/safety/img/icon-cpr.png',
+  '/safety/img/qrshare.png',
   '/safety/android-chrome-192x192.png',
   '/safety/android-chrome-512x512.png',
   '/safety/apple-touch-icon.png',
@@ -15,6 +15,7 @@ const OFFLINE_FILES = [
   '/safety/favicon-32x32.png',
   '/safety/favicon.ico',
   '/safety/manifest.json',
+  '/safety/prinnt.html',
   '/safety/cprhlr.html',
   "/safety/norway/",
   "/safety/norway/cprhlr.html",
