@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emergency Info – Printable Guide</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 1em;
+      background: #fff;
+      color: #000;
+    }
+
+    h1, h2 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.3em;
+      margin-top: 2em;
+    }
+
+    nav {
+      margin-bottom: 2em;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav li {
+      margin: 0.5em 0;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    section {
+      margin-bottom: 2em;
+      page-break-before: always;
+    }
+
+    .back-to-top {
+      margin-top: 1em;
+    }
+
+    @media print {
+      .back-to-top {
+        display: none;
+      }
+
+      a[href^="#"]::after {
+        content: " (see page)";
+      }
+
+      nav {
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 id="top">🧾 Emergency Info – Printable Guide</h1>
+  <p>This page includes all safety topics for offline use or saving as PDF.</p>
+
+  <nav>
+    <h2>Contents</h2>
+    <ul id="index"></ul>
+  </nav>
+
+  <div id="content">Loading content…</div>
+
+  <script>
+    const sections = [
+      { id: "cpr", title: "❤️ CPR / HLR", url: "cprhlr.html" },
+      { id: "fire", title: "🔥 Fire Safety", url: "norway/fire.html" },
+      { id: "numbers", title: "📞 Emergency Numbers", url: "norway/index.html" }
+    ];
+
+    const indexList = document.getElementById('index');
+    const contentContainer = document.getElementById('content');
+    contentContainer.innerHTML = '';
+
+    sections.forEach(({ id, title, url }) => {
+      // Build index entry
+      const li = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = `#${id}`;
+      link.textContent = title;
+      li.appendChild(link);
+      indexList.appendChild(li);
+
+      // Fetch and inject content
+      fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          const main = doc.querySelector('main');
+          if (main) {
+            const section = document.createElement('section');
+            section.id = id;
+
+            const heading = document.createElement('h2');
+            heading.textContent = title;
+
+            const backLink = document.createElement('p');
+            backLink.className = 'back-to-top';
+            backLink.innerHTML = '<a href="#top">🔝 Back to top</a>';
+
+            section.appendChild(heading);
+            section.appendChild(main.cloneNode(true));
+            section.appendChild(backLink);
+            contentContainer.appendChild(section);
+          } else {
+            const error = document.createElement('p');
+            error.textContent = `⚠️ Could not load ${title} (${url})`;
+            contentContainer.appendChild(error);
+          }
+        })
+        .catch(err => {
+          const error = document.createElement('p');
+          error.textContent = `⚠️ Error loading ${title} (${url})`;
+          contentContainer.appendChild(error);
+        });
+    });
+  </script>
+</body>
+</html>
