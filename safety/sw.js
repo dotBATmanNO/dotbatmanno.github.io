@@ -6,7 +6,7 @@ const OFFLINE_FILES = [
   '/safety/css/safety.css',
   '/safety/img/icon-192.png',
   '/safety/img/icon-512.png',
-  '/safety/img/icon-cpr.png',
+  '/safety/img/icon-cpr.svg',
   '/safety/img/qrshare.png',
   '/safety/android-chrome-192x192.png',
   '/safety/android-chrome-512x512.png',
