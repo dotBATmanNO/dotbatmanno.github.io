@@ -17,10 +17,10 @@ const OFFLINE_FILES = [
   '/safety/manifest.json',
   '/safety/print.html',
   '/safety/cprhlr.html',
-  "/safety/norway/",
-  "/safety/norway/cprhlr.html",
-  "/safety/norway/fire.html",
-  "/safety/norway/index.html"
+  '/safety/norway/',
+  '/safety/norway/cprhlr.html',
+  '/safety/norway/fire.html',
+  '/safety/norway/index.html'
 ];
 
 // Install and cache essential files
