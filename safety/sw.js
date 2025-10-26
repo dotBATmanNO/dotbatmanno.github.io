@@ -15,7 +15,7 @@ const OFFLINE_FILES = [
   '/safety/favicon-32x32.png',
   '/safety/favicon.ico',
   '/safety/manifest.json',
-  '/safety/prinnt.html',
+  '/safety/print.html',
   '/safety/cprhlr.html',
   "/safety/norway/",
   "/safety/norway/cprhlr.html",
