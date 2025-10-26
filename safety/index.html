@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Gotta.no</title>
+  <title>Emergency Info - Gotta.no</title>
 
   <!-- PWA Manifest -->
-  <link rel="manifest" href="/safety/manifest.json">
+  <link rel="manifest" href="manifest.json">
 
   <!-- Universal mobile web app support -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -21,13 +21,13 @@
   <link rel="apple-touch-icon" href="/safety/img/icon-192.png">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="/safety/css/safety.css">
+  <link rel="stylesheet" href="css/safety.css">
 
 </head>
 <body>
   <main>
     <section class="card">
-      <h1>🌍 Universal Emergency Info</h1>
+      <h1>🌍 Emergency Info</h1>
       <p class="intro">Dial <strong>112</strong> for emergency services. Recognized across most mobile phones and countries.</p>
       <div class="link-block">
         <a href="cprhlr.html">
@@ -46,6 +46,12 @@
 
       <a href="norway/index.html" class="drilldown-button">🇳🇴 View Norway-specific info</a>
     </section>
+
+    <nav class="nav-buttons">
+      <button onclick="history.back()">⬅ Back</button>
+      <a href="/safety/index.html">🏠 Home</a>
+      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">🔝 Top</button>
+    </nav>
   </main>
 
   <!-- Trigger Button -->
