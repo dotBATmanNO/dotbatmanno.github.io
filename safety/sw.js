@@ -1,7 +1,7 @@
 const CACHE_NAME = 'gotta-safety-v102';
 const OFFLINE_FILES = [
   '/favicon.ico',
-  '/javascript/link-checker.js',
+  '/js/link-checker.js',
   '/safety/',
   '/safety/index.html',
   '/safety/css/safety.css',
