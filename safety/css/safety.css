@@ -184,3 +184,19 @@ button {
   font-size: 0.95em;
   text-decoration: none;
 }
+.unavailable {
+  pointer-events: none;
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.link-note {
+  opacity: 0.6;
+  font-style: italic;
+  margin-left: 0.3em;
+}
+
+.offline-mode {
+  opacity: 0.7;
+  text-decoration: underline dotted;
+}
