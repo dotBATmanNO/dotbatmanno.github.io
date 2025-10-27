@@ -1,7 +1,4 @@
 (function () {
-  const isOffline = !navigator.onLine;
-
-  // Select all elements with href or data-href
   const targets = document.querySelectorAll('a[href], button[data-href]');
 
   targets.forEach(el => {
@@ -12,14 +9,25 @@
     // Skip external links
     if (!url || url.startsWith('http') || url.startsWith('//')) return;
 
-    // Offline mode: mark as uncertain
-    if (isOffline) {
-      el.classList.add('offline-mode');
-      el.setAttribute('title', 'Offline — link may not work');
+    // Offline mode: check cache
+    if (!navigator.onLine && 'caches' in window) {
+      caches.match(url).then(match => {
+        if (!match) {
+          el.classList.add('unavailable');
+          el.setAttribute('title', '🚫 Not available offline');
+          const label = document.createElement('span');
+          label.className = 'link-note';
+          label.textContent = ' (not cached)';
+          el.appendChild(label);
+        } else {
+          el.classList.add('offline-mode');
+          el.setAttribute('title', '✅ Available offline');
+        }
+      });
       return;
     }
 
-    // Check existence via HEAD
+    // Online mode: check via HEAD
     fetch(url, { method: 'HEAD' })
       .then(res => {
         if (!res.ok) throw new Error('Missing');
