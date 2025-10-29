@@ -22,6 +22,7 @@ const OFFLINE_FILES = [
   '/safety/norway/',
   '/safety/norway/cprhlr.html',
   '/safety/norway/fire.html',
+  '/safety/norway/power.html',
   '/safety/norway/index.html'
 ];
 
