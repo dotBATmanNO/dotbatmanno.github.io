@@ -1,7 +1,8 @@
 (function () {
   const container = document.getElementById('weather-alerts');
   const timestamp = document.getElementById('weather-timestamp');
-  const endpoint = 'https://api.met.no/weatherapi/metalerts/2.0/all.json';
+  //const endpoint = 'https://api.met.no/weatherapi/metalerts/2.0/current.json';
+  const endpoint = 'https://api.met.no/weatherapi/metalerts/2.0/test.json';
 
   function formatTime(date) {
     return date.toLocaleString('no-NO', {
