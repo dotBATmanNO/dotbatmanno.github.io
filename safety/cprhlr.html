@@ -39,10 +39,13 @@
           <button onclick="stopBeat()">⏹ Stop</button>
         </div>
       </div>
-
-      <a href="norway/cprhlr.html" class="drilldown-button">🇳🇴 View Norway-specific CPR guide</a>
     </section>
   </main>
+  <nav class="nav-buttons">
+    <button onclick="history.back()">⬅ Back</button>
+    <a href="/safety/index.html">🏠 Home</a>
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">🔝 Top</button>
+  </nav>
 
   <script>
     let context = new (window.AudioContext || window.webkitAudioContext)();
