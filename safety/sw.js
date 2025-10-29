@@ -10,6 +10,7 @@ const OFFLINE_FILES = [
   '/safety/img/icon-cpr.svg',
   '/safety/img/qrshare.png',
   '/safety/js/link-checker.js',
+  '/safety/js/weather-alerts.js',
   '/safety/android-chrome-192x192.png',
   '/safety/android-chrome-512x512.png',
   '/safety/apple-touch-icon.png',
@@ -23,6 +24,7 @@ const OFFLINE_FILES = [
   '/safety/norway/cprhlr.html',
   '/safety/norway/fire.html',
   '/safety/norway/power.html',
+  '/safety/norway/weather.html',
   '/safety/norway/index.html'
 ];
 
