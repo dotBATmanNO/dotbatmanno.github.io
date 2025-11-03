@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HLR – Hjerte- og lungeredning i Norge</title>
+  <link rel="manifest" href="../manifest.json">
+  <link rel="stylesheet" href="../css/safety.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <main>
+    <section class="card">
+      <h1>🫀 HLR – Hjerte- og lungeredning</h1>
+      <p class="intro">Ved hjertestans er rask innsats avgjørende. Her er en forenklet guide basert på anbefalinger fra Helsenorge og Norsk Resuscitasjonsråd.</p>
+
+      <ol class="steps">
+        <li>Sjekk bevissthet og pust.</li>
+        <li>Ring <a href="tel:113"><strong>113</strong></a> – medisinsk nødnummer i Norge.</li>
+        <li>Start brystkompresjoner: <strong>30 kompresjoner</strong> etterfulgt av <strong>2 innblåsninger</strong>.</li>
+        <li>Fortsett til profesjonell hjelp kommer eller personen viser tegn til liv.</li>
+      </ol>
+
+      <div class="beat-box">
+        <p><strong>Rytme:</strong> 100–120 kompresjoner per minutt.</p>
+        <p>Bruk en jevn rytme – omtrent 2 slag per sekund. Du kan starte en lydpuls her:</p>
+
+        <div class="beat-controls">
+          <button onclick="playBeat()">▶ Start rytme</button>
+          <button onclick="stopBeat()">⏹ Stopp</button>
+        </div>
+      </div>
+
+      <p class="source-link">
+        Les mer hos <a href="https://www.helsenorge.no/forstehjelp/hjerte-og-lungeredning-hlr/" target="_blank">Helsenorge</a> og <a href="https://nrr.org" target="_blank">Norsk Resuscitasjonsråd</a>.
+      </p>
+    </section>
+  </main>
+  <a href="/safety/cprhlr.html" class="drilldown-button">🌍 View universal CPR guide</a>
+  <nav class="nav-buttons">
+    <button onclick="history.back()">⬅ Back</button>
+    <a href="/safety/index.html">🏠 Home</a>
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">🔝 Top</button>
+  </nav>
+  <script>
+    let context = new (window.AudioContext || window.webkitAudioContext)();
+    let isPlaying = false;
+    let interval;
+
+    function playBeat() {
+      if (isPlaying) return;
+      isPlaying = true;
+      interval = setInterval(() => {
+        let osc = context.createOscillator();
+        osc.frequency.value = 1000;
+        osc.connect(context.destination);
+        osc.start();
+        osc.stop(context.currentTime + 0.05);
+      }, 600); // ~100 BPM
+    }
+
+    function stopBeat() {
+      isPlaying = false;
+      clearInterval(interval);
+    }
+  </script>
+</body>
+</html>

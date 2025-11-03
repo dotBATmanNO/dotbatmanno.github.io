@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Beredskapsinformasjon - Gotta.no</title>
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/beredskap/manifest.json">
+
+  <!-- Universal mobile web app support -->
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- Theme color for browser UI -->
+  <meta name="theme-color" content="#000000">
+
+  <!-- Favicon and app icons -->
+  <link rel="icon" href="/beredskap/img/icon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/beredskap/img/icon-192.png">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/beredskap/css/beredskap.css">
+
+</head>
+<body>
+  <main>
+    <section class="card">
+      <h1>🇳🇴 Nødinfo for Norge</h1>
+      <p class="intro">Her finner du viktig informasjon om hva du skal gjøre i ulike nødsituasjoner i Norge. Alt innhold er tilgjengelig offline og basert på pålitelige kilder.</p>
+
+      <div class="grid">
+        <a href="cprhlr.html" class="grid-item">
+          <h2>🫀 HLR</h2>
+          <p>Hjerte- og lungeredning med rytmehjelp</p>
+        </a>
+
+        <a href="fire.html" class="grid-item">
+          <h2>🔥 Brann</h2>
+          <p>Evakuering, varsling og brannslukking</p>
+        </a>
+
+        <a href="weather.html" class="grid-item">
+          <h2>🌪️ Ekstremvær</h2>
+          <p>Varsler og tiltak ved uvær</p>
+        </a>
+
+        <a href="power.html" class="grid-item">
+          <h2>⚡ Strømbrudd</h2>
+          <p>Hva du bør ha klart og hvordan du varsler</p>
+        </a>
+
+        <a href="nature.html" class="grid-item">
+          <h2>🧭 Natur</h2>
+          <p>Trygg ferdsel og hjelp om en går seg vill</p>
+        </a>
+
+        <a href="numbers.html" class="grid-item">
+          <h2>☎️ Nødnumre</h2>
+          <p>Alle viktige telefonnumre i Norge</p>
+        </a>
+      </div>
+    </section>
+  </main>
+  
+  <nav class="nav-buttons">
+      <button id="toggleShare">Share with a friend</button>
+      <a href="print.html">Print site</a>
+      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">🔝 Top</button>
+  </nav>
+
+  <!-- Expandable Share Box -->
+  <div id="shareBox" class="share-box" hidden>
+    <div class="share-header">
+      <h4>Accessing This Site</h4>
+      <button id="closeShare" class="close-button">&times;</button>
+    </div>
+    <div class="share-body">
+      <ol>
+        <li>
+          Scan this QR code to visit the site</br>
+          <img src="/beredskap/img/qrshare.png" alt="QR Code for å dele" style="width:90px;height:90px;">
+        </li>
+        <li>
+          Eller skriv inn, eller del, denne lenken:<br>
+          <a href="https://gotta.no/beredskap/" target="_blank">https://gotta.no/beredskap/</a>
+        </li>
+        <li>
+          Til slutt: Legg til nettstedet på hjem-skjermen for enkel tilgang, også uten nett.
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <footer>  
+    <p>Klar for bruk uten nett. Sist oppdatert: November 2025.</p>
+  </footer>
+
+  <script>
+    
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/safety/sw.js')
+        .then(() => console.log('Safety Service Worker registered'))
+        .catch(err => console.error('SW error:', err));
+    }
+    const toggleBtn = document.getElementById("toggleShare");
+    const closeBtn = document.getElementById("closeShare");
+    const shareBox = document.getElementById("shareBox");
+
+    toggleBtn.onclick = () => shareBox.hidden = false;
+    closeBtn.onclick = () => shareBox.hidden = true;
+  
+  </script>
+
+  <script src="/beredskap/js/link-checker.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <title>🌦️ Vær og varsler – Norge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/safety.css" />
+</head>
+<body>
+  <main>
+    <h1 id="top">🌦️ Vær og varsler – Norge</h1>
+    <section>
+      <h2>⚠️ Aktive værvarsler</h2>
+      <div id="weather-alerts">Henter varsler…</div>
+      <p id="weather-timestamp" class="timestamp"></p>
+    </section>
+
+    <section>
+      <h2>📡 Kilder og kart</h2>
+      <ul>
+        <li><a href="https://www.yr.no/" target="_blank">Yr.no – værmelding</a></li>
+        <li><a href="https://www.met.no/" target="_blank">MET – Meteorologisk institutt</a></li>
+        <li><a href="https://www.dsb.no/sikkerhverdag/egenberedskap/" target="_blank">DSB – egenberedskap</a></li>
+      </ul>
+    </section>
+
+    <p class="back-to-top"><a href="#top">🔝 Til toppen</a></p>
+  </main>
+
+  <nav class="nav-buttons no-print">
+    <button onclick="history.back()">⬅ Tilbake</button>
+    <a href="/safety/index.html">🏠 Hjem</a>
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">🔝 Til toppen</button>
+  </nav>
+
+  <script src="/safety/js/weather-alerts.js" defer></script>
+</body>
+</html>

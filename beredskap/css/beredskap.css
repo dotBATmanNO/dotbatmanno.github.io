@@ -1,0 +1,227 @@
+body {
+  font-family: sans-serif;
+  background: #f8f8f8;
+  color: #222;
+  padding: 0.5em;
+  max-width: 600px;
+  margin: auto;
+  font-size: 16px;
+}
+
+header, footer {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+h1, h2, h3 {
+  margin: 0.4em 0;
+}
+
+p, .intro, .note {
+  margin: 0.6em 0;
+  line-height: 1.4;
+  font-size: 0.95em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.6em 0;
+}
+
+li {
+  margin: 0.4em 0;
+  font-size: 0.95em;
+}
+
+ol.steps {
+  padding-left: 1.2em;
+  margin: 0.6em 0;
+}
+
+ol.steps li {
+  margin-bottom: 0.4em;
+}
+
+a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+button {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 0.4em 0.8em;
+  font-size: 0.95em;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.share-box {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem auto;
+  max-width: 500px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.share-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.share-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.share-button:hover {
+  background-color: #0056b3;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: red;
+}
+
+.card {
+  max-width: 600px;
+  margin: auto;
+  background: #ffffff;
+  padding: 1.2em;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #333;
+}
+
+.languages .lang {
+  margin: 0.5em 0;
+  font-size: 1.1em;
+}
+
+.drilldown-button {
+  display: inline-block;
+  margin-top: 1em;
+  padding: 0.6em 1em;
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.95em;
+}
+
+.beat-controls button {
+  margin: 0.4em;
+  padding: 0.5em 0.9em;
+  font-size: 0.95em;
+  border: none;
+  border-radius: 6px;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+}
+
+.link-block {
+  margin-top: 0.8em;
+  text-align: center;
+}
+
+.link-block img {
+  display: block;
+  margin: auto;
+}
+
+.link-block p {
+  margin: 0.5em 0 0;
+  font-size: 0.95em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.8em;
+  margin-top: 1.5em;
+}
+
+.grid-item {
+  background: #111;
+  padding: 0.8em;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 0 6px #333;
+}
+
+.grid-item img {
+  margin-bottom: 0.4em;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1em;
+  gap: 0.5em;
+}
+
+.nav-buttons button,
+.nav-buttons a {
+  background: #222;
+  color: #fff;
+  padding: 0.4em 0.8em;
+  border-radius: 6px;
+  font-size: 0.95em;
+  text-decoration: none;
+}
+.unavailable {
+  pointer-events: none;
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.link-note {
+  opacity: 0.6;
+  font-style: italic;
+  margin-left: 0.3em;
+}
+
+.offline-mode {
+  opacity: 0.7;
+  text-decoration: underline dotted;
+}
+
+.alert-box {
+  display: flex;
+  align-items: start;
+  margin-bottom: 1em;
+}
+
+.alert-icon {
+  width: 48px;
+  height: 48px;
+  margin-right: 0.5em;
+}
+
+.alert-text {
+  max-width: 80%;
+}
+
+.alert-error {
+  color: darkred;
+}
+
+.timestamp {
+  font-size: 0.9em;
+  color: #555;
+}
