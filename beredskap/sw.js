@@ -61,6 +61,7 @@ const OFFLINE_FILES = [
   '/beredskap/favicon.ico',
   '/beredskap/manifest.json',
   '/beredskap/print.html',
+  '/beredskap/lokalt/index.html',
   '/beredskap/pages/',
   '/beredskap/pages/cprhlr.html',
   '/beredskap/pages/fire.html',
