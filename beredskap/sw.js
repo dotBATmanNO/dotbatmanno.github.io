@@ -2,7 +2,6 @@ const CACHE_NAME = 'gotta-beredskap-v103';
 const OFFLINE_FILES = [
   '/favicon.ico',
   '/beredskap/',
-  '/beredskap/js/link-checker.js',
   '/beredskap/index.html',
   '/beredskap/css/beredskap.css',
   '/beredskap/icons/icon-warning-avalanches-orange.svg',
@@ -100,3 +99,4 @@ self.addEventListener('fetch', event => {
     )
   );
 });
+
