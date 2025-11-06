@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gotta-beredskap-v103';
+const CACHE_NAME = 'gotta-beredskap-v104';
 const OFFLINE_FILES = [
   '/favicon.ico',
   '/beredskap/',
