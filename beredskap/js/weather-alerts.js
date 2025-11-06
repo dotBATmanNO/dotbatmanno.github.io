@@ -22,7 +22,7 @@
     const area = alert.properties.area || 'Ukjent område';
     const desc = alert.properties.description || '';
     const iconName = type.toLowerCase().replace(/ /g, '-');
-    const iconPath = `/safety/icons/${iconName}.svg`;
+    const iconPath = `/beredskap/icons/${iconName}.svg`;
 
     const div = document.createElement('div');
     div.className = 'alert-box';
