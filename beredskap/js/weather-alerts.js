@@ -17,7 +17,7 @@
   }
 
   function renderAlert(alert) {
-    const type = alert.properties.event || 'Varsel';
+    const type = alert.properties.awareness_type || 'Varsel';
     const severity = alert.properties.severity || 'Ukjent';
     const area = alert.properties.area || 'Ukjent område';
     const desc = alert.properties.description || '';
