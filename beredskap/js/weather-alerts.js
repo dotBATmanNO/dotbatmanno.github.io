@@ -21,7 +21,19 @@
     const severity = alert.properties.severity || 'Ukjent';
     const area = alert.properties.area || 'Ukjent område';
     const desc = alert.properties.description || '';
-    const iconName = type.toLowerCase().replace(/ /g, '-');
+
+    // sanitize and extract the meaningful part for the icon filename
+    function slugifyIconName(raw) {
+      if (!raw) return 'varsell';
+      // split on common separators and take the last segment
+      let segment = String(raw).split(/[:;,-]/).pop().trim();
+      // take the last word made of letters/numbers (handles "1;-wind" => "wind")
+      const m = segment.match(/([A-Za-zÆØÅæøå0-9]+)$/);
+      const word = m ? m[1] : segment;
+      return word.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    }
+
+    const iconName = slugifyIconName(type);
     const iconPath = `/beredskap/icons/${iconName}.svg`;
 
     const div = document.createElement('div');
