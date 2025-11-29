@@ -34,7 +34,7 @@
     }
 
     const iconName = slugifyIconName(type);
-    const iconPath = `/beredskap/icons/${iconName}.svg`;
+    const iconPath = `/beredskap/icons/icon-warning-${iconName}-${severity}.svg`;
 
     const div = document.createElement('div');
     div.className = 'alert-box';
