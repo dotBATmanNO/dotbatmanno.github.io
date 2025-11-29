@@ -24,7 +24,7 @@
 
     // sanitize and extract the meaningful part for the icon filename
     function slugifyIconName(raw) {
-      if (!raw) return 'varsell';
+      if (!raw) return 'varsel';
       // split on common separators and take the last segment
       let segment = String(raw).split(/[:;,-]/).pop().trim();
       // take the last word made of letters/numbers (handles "1;-wind" => "wind")
