@@ -19,6 +19,7 @@
   function renderAlert(alert) {
     const type = alert.properties.awareness_type || 'Varsel';
     const severity = alert.properties.severity || 'Ukjent';
+    const level = alert.properties.level || 'Ukjent';
     const area = alert.properties.area || 'Ukjent område';
     const desc = alert.properties.description || '';
 
@@ -34,7 +35,8 @@
     }
 
     const iconName = slugifyIconName(type);
-    const iconPath = `/beredskap/icons/icon-warning-${iconName}-${severity}.svg`;
+    const iconColor = slugifyIconName(level);
+    const iconPath = `/beredskap/icons/icon-warning-${iconName}-${iconColor}.svg`;
 
     const div = document.createElement('div');
     div.className = 'alert-box';
