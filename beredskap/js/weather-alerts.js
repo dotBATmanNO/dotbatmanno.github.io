@@ -16,26 +16,36 @@
     });
   }
 
-  function renderAlert(alert) {
+  function renderAlert(alert, { typeIndex = 1, levelIndex = 1 } = {}) {
     const type = alert.properties.awareness_type || 'Varsel';
     const severity = alert.properties.severity || 'Ukjent';
     const level = alert.properties.level || 'Ukjent';
     const area = alert.properties.area || 'Ukjent område';
     const desc = alert.properties.description || '';
 
-    // sanitize and extract the meaningful part for the icon filename
-    function slugifyIconName(raw) {
+    // get the Nth part (1-based) from a raw string, sanitize and slugify it
+    function getPart(raw, index) {
       if (!raw) return 'varsel';
-      // split on common separators and take the last segment
-      let segment = String(raw).split(/[:;,-]/).pop().trim();
-      // take the last word made of letters/numbers (handles "1;-wind" => "wind")
-      const m = segment.match(/([A-Za-zÆØÅæøå0-9]+)$/);
-      const word = m ? m[1] : segment;
-      return word.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      const str = String(raw);
+      // split on common separators, trim and remove empty parts
+      const parts = str.split(/[;:,\-\/]+/).map(p => p.trim()).filter(Boolean);
+      // clamp to at least 1
+      const i = Math.max(1, Math.floor(index));
+      // pick requested part or fallback to last part
+      let part = parts[i - 1] || parts[parts.length - 1] || str;
+      // remove leading numbers and stray separators ("1 - wind" -> "wind")
+      part = part.replace(/^[\d\s:;.\-–—]+/, '').trim();
+      // extract trailing word-like token
+      const m = part.match(/([A-Za-zÆØÅæøå0-9]+)$/);
+      let token = m ? m[1] : part;
+      // normalize, remove diacritics, make safe slug
+      token = token.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      return token.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'varsel';
     }
 
-    const iconName = slugifyIconName(type);
-    const iconColor = slugifyIconName(level);
+    // caller controls which part to use
+    const iconName = getPart(type, typeIndex);
+    const iconColor = getPart(level, levelIndex);
     const iconPath = `/beredskap/icons/icon-warning-${iconName}-${iconColor}.svg`;
 
     const div = document.createElement('div');
