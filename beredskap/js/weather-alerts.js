@@ -44,8 +44,8 @@
     }
 
     // caller controls which part to use
-    const iconName = getPart(type, typeIndex);
-    const iconColor = getPart(level, levelIndex);
+    const iconName = getPart(type, 2);
+    const iconColor = getPart(level, 2);
     const iconPath = `/beredskap/icons/icon-warning-${iconName}-${iconColor}.svg`;
 
     const div = document.createElement('div');
