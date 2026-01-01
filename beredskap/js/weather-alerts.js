@@ -17,7 +17,7 @@
   }
 
   function renderAlert(alert, { typeIndex = 1, levelIndex = 1 } = {}) {
-    const type = alert.properties.awareness_type.split('; ');
+    const type = alert.properties.awareness_type.split(';');
     const severity = alert.properties.severity;
     const level = alert.properties.riskMatrixColor;
     const area = alert.properties.area;
