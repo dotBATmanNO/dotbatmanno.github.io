@@ -19,13 +19,13 @@
   function renderAlert(alert, { typeIndex = 1, levelIndex = 1 } = {}) {
     const type = [alert.properties.awareness_type];
     const severity = alert.properties.severity;
-    const level = [alert.properties.awareness_level];
+    const level = alert.properties.riskMatrixColor;
     const area = alert.properties.area;
     const desc = alert.properties.description;
 
     // caller controls which part to use
     const iconName = type[1];
-    const iconColor = level[1];
+    const iconColor = level;
     const iconPath = `/beredskap/icons/icon-warning-${iconName}-${iconColor}.svg`;
 
     const div = document.createElement('div');
