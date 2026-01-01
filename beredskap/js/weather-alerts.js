@@ -18,7 +18,7 @@
 
   function renderAlert(alert, { typeIndex = 1, levelIndex = 1 } = {}) {
     const type = [alert.properties.awareness_type];
-    const severity = alert.properties.severity';
+    const severity = alert.properties.severity;
     const level = [alert.properties.level];
     const area = alert.properties.area;
     const desc = alert.properties.description;
