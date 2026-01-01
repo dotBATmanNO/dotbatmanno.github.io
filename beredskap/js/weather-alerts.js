@@ -17,35 +17,15 @@
   }
 
   function renderAlert(alert, { typeIndex = 1, levelIndex = 1 } = {}) {
-    const type = alert.properties.awareness_type || 'Varsel';
-    const severity = alert.properties.severity || 'Ukjent';
-    const level = alert.properties.level || 'Ukjent';
-    const area = alert.properties.area || 'Ukjent område';
-    const desc = alert.properties.description || '';
-
-    // get the Nth part (1-based) from a raw string, sanitize and slugify it
-    function getPart(raw, index) {
-      if (!raw) return 'varsel';
-      const str = String(raw);
-      // split on common separators, trim and remove empty parts
-      const parts = str.split(/[;:,\-\/]+/).map(p => p.trim()).filter(Boolean);
-      // clamp to at least 1
-      const i = Math.max(1, Math.floor(index));
-      // pick requested part or fallback to last part
-      let part = parts[i - 1] || parts[parts.length - 1] || str;
-      // remove leading numbers and stray separators ("1 - wind" -> "wind")
-      part = part.replace(/^[\d\s:;.\-–—]+/, '').trim();
-      // extract trailing word-like token
-      const m = part.match(/([A-Za-zÆØÅæøå0-9]+)$/);
-      let token = m ? m[1] : part;
-      // normalize, remove diacritics, make safe slug
-      token = token.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-      return token.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'varsel';
-    }
+    const type = [alert.properties.awareness_type];
+    const severity = alert.properties.severity';
+    const level = [alert.properties.level];
+    const area = alert.properties.area;
+    const desc = alert.properties.description;
 
     // caller controls which part to use
-    const iconName = getPart(type, 2);
-    const iconColor = getPart(level, 2);
+    const iconName = type[1];
+    const iconColor = level[1];
     const iconPath = `/beredskap/icons/icon-warning-${iconName}-${iconColor}.svg`;
 
     const div = document.createElement('div');
