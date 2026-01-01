@@ -24,9 +24,7 @@
     const desc = alert.properties.description;
 
     // caller controls which part to use
-    const iconName = type[1];
-    const iconColor = level;
-    const iconPath = `/beredskap/icons/icon-warning-${iconName}-${iconColor}.svg`;
+    const iconPath = `/beredskap/icons/icon-warning-${type[1]}-${level}.svg`;
 
     const div = document.createElement('div');
     div.className = 'alert-box';
