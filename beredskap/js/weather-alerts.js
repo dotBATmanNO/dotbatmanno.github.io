@@ -25,7 +25,8 @@
 
     // caller controls which part to use
     const alerttype = type[1].trim();
-    const iconPath = `/beredskap/icons/icon-warning-${alerttype}-${level}.svg`;
+    const alertlevel = level.toLowerCase();
+    const iconPath = `/beredskap/icons/icon-warning-${alerttype}-${alertlevel}.svg`;
 
     const div = document.createElement('div');
     div.className = 'alert-box';
