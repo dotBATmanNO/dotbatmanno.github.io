@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <title>🧭 Natur – Norge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/beredskap.css" />
+</head>
+<body>
+<main>
+
+  <header>
+    <h1>Nødnumre</h1>
+    <p class="intro">
+      Kortversjon vises under. Trykk “Vis mer” for full informasjon.
+    </p>
+  </header>
+
+  <!-- KORTVERSJON -->
+  <section class="lager-seksjon">
+    <h2>Kortversjon</h2>
+    <ul>
+      <li><strong>112 – Politi</strong></li>
+      <li><strong>113 – Medisinsk nødhjelp</strong></li>
+      <li><strong>110 – Brann og redning</strong></li>
+    </ul>
+
+    <p class="note">Nødnumre fungerer selv uten dekning.</p>
+
+    <button id="toggleFull" style="margin-top:1em;">
+      Vis mer
+    </button>
+  </section>
+
+  <!-- FULLVERSJON (skjult som standard) -->
+  <section id="fullVersion" class="lager-seksjon" style="display:none;">
+
+    <h2>Andre viktige numre</h2>
+    <ul>
+      <li><strong>1412 – Nød-SMS</strong> (for hørselshemmede / hvis du ikke kan snakke)</li>
+      <li><strong>116 117 – Legevakt</strong></li>
+      <li><strong>175 – Vegtrafikksentralen</strong></li>
+      <li><strong>120 – Kystradio</strong></li>
+    </ul>
+
+    <h2>Hvis du ikke har dekning</h2>
+    <ul>
+      <li>Nødnumre prøver alle tilgjengelige nett.</li>
+      <li>Start mobilen på nytt for nytt nett-søk.</li>
+      <li>Gå til høyere eller mer åpent område.</li>
+    </ul>
+
+    <h2>Si dette når du ringer</h2>
+    <ul>
+      <li>Hva som har skjedd.</li>
+      <li>Hvor du er (så godt du kan).</li>
+      <li>Om noen er skadet.</li>
+    </ul>
+    <p class="note">Ikke legg på før du får beskjed.</p>
+
+    <h2>Tips for å være forberedt</h2>
+    <ul>
+      <li>Lagre nødnumrene i telefonen.</li>
+      <li>Ha ICE‑kontakt (In Case of Emergency) i kontaktlista.</li>
+      <li>Ha en lapp med nødnumre i lommebok, sekk eller bil.</li>
+      <li>Lær barna hvordan de ringer 112.</li>
+    </ul>
+
+  </section>
+
+  <footer>
+    <p class="note">
+      Basert på råd fra nødetatene og norske beredskapsmyndigheter.
+    </p>
+  </footer>
+
+  <!-- LITEN INLINE SCRIPT FOR Å ÅPNE/LUKKE FULLVERSJON -->
+  <script>
+    const btn = document.getElementById('toggleFull');
+    const full = document.getElementById('fullVersion');
+
+    btn.addEventListener('click', () => {
+      const isHidden = full.style.display === 'none';
+      full.style.display = isHidden ? 'block' : 'none';
+      btn.textContent = isHidden ? 'Skjul' : 'Vis mer';
+    });
+  </script>
+
+</main>
+
+  <nav class="nav-buttons no-print">
+    <button onclick="history.back()">⬅ Tilbake</button>
+    <a href="/beredskap/index.html">🏠 Hjem</a>
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">🔝 Til toppen</button>
+  </nav>
+
+  <script src="/beredskap/js/link-checker.js" defer></script>
+</body>
+</html>
