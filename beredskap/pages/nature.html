@@ -7,46 +7,178 @@
   <link rel="stylesheet" href="../css/beredskap.css" />
 </head>
 <body>
-  <main>
-    <h1 id="top">🧭 Natur – Norge</h1>
-    <p>Her finner du råd som bidrar til trygg ferdsel og hjelp om en går seg vill.</p>
-    <p>UNDER UTARBEIDING</p>
+  <main class="page page--scenario">
+  <header class="page-header">
+    <h1><span class="icon icon-nature"></span>Gå seg vill / natur</h1>
+    <p class="lead">
+      Denne siden er laget for å fungere også uten nett. Les den godt før du drar på tur.
+    </p>
+  </header>
 
-    <section>
-      <h2>🔌 Første tiltak</h2>
-      <ul>
-        <li>Sjekk om du har strøm og dekning på telefon.</li>
-        <li>Varsle om hvor du er.</li>
-        <li>Bruk lommelykt – unngå stearinlys hvis mulig, på grunn av brannfare.</li>
-        <li>Bevar batteri og mobildata.</li>
-      </ul>
-    </section>
+  <!-- 1. Før turen – online-forberedelser -->
+  <section class="section section--pretrip">
+    <h2><span class="icon icon-plan"></span>Før turen (når du har nett)</h2>
+    <p>
+      God planlegging gjør at du sjeldnere går deg vill – og tåler mer hvis noe skjer.
+    </p>
 
-    <section>
-      <h2>🥶 Kulde og oppvarming</h2>
-      <ul>
-        <li>Kle deg lagvis og bruk tepper for å holde varmen.</li>
-      </ul>
-    </section>
+    <h3>Planlegg ruta</h3>
+    <ul>
+      <li>Bruk <strong>UT.no</strong> eller annet turkart til å velge rute som passer form og erfaring.</li>
+      <li>Sjekk <strong>værmelding</strong> og eventuelt <strong>skredfare</strong> før du drar.</li>
+      <li>Si fra til noen hvor du skal, hvem du er med, og når du forventer å være tilbake.</li>
+    </ul>
 
-    <section>
-      <h2>🧊 Mat og vann</h2>
-      <ul>
-        <li>Ha vann lagret – spesielt hvis du har elektrisk pumpe.</li>
-      </ul>
-    </section>
+    <h3>Pakk riktig</h3>
+    <ul>
+      <li><strong>Kart og kompass</strong> – ikke stol bare på mobil.</li>
+      <li><strong>Ekstra klær</strong> (ull, lue, votter), litt ekstra mat og drikke.</li>
+      <li><strong>Liten førstehjelpspakke</strong> og <strong>nødteppe</strong>.</li>
+      <li><strong>Lommelykt/pannel ykt</strong> og gjerne en <strong>powerbank</strong>.</li>
+      <li><strong>Fløyte</strong> for å kunne varsle (3 korte signaler).</li>
+    </ul>
 
-    <section>
-      <h2>🧭 Egenberedskap</h2>
-      <ul>
-        <li>Ha lommelykt, batterier, powerbank og nødutstyr klart.</li>
-        <li>Vurder å ha en beredskapsvenn med varme og strøm.</li>
-        <li>Sjekk på naboer, spesielt eldre eller sårbare.</li>
-        <li>Les mer hos <a href="https://www.dsb.no/sikkerhverdag/egenberedskap/">DSB om egenberedskap</a>.</li>
-      </ul>
-    </section>
+    <h3>Lenker for å forberede seg</h3>
+    <p class="note">
+      Disse fungerer bare når du har nett, men kan brukes til å lære mer og planlegge:
+    </p>
+    <ul class="link-list">
+      <li><a href="https://ut.no" target="_blank" rel="noopener">UT.no – turplanlegging</a></li>
+      <li><a href="https://varsom.no" target="_blank" rel="noopener">Varsom – skred og farevarsler</a></li>
+      <li><a href="https://www.dnt.no" target="_blank" rel="noopener">DNT – tur- og sikkerhetsråd</a></li>
+      <li><a href="https://www.rodekors.no" target="_blank" rel="noopener">Røde Kors – førstehjelp og fjellsikkerhet</a></li>
+    </ul>
+  </section>
 
-  </main>
+  <!-- 2. Underveis – unngå å gå seg vill -->
+  <section class="section section--during">
+    <h2><span class="icon icon-walk"></span>Underveis – unngå å gå deg vill</h2>
+    <p>
+      Når du er ute, kan du ikke stole på dekning eller batteri. Bruk hodet, kartet og terrenget.
+    </p>
+
+    <ul class="bullet-list">
+      <li><strong>Følg stien</strong> – ikke ta “smarte snarveier” i ukjent terreng.</li>
+      <li><strong>Snu i tide</strong> ved dårlig vær, mørke eller hvis du blir usikker.</li>
+      <li><strong>Sjekk retningen ofte</strong> med kart/kompass, ikke vent til du er helt i tvil.</li>
+      <li><strong>Bruk terrengmerker</strong> som vann, høyder, daler, kraftlinjer og veier.</li>
+      <li><strong>Hold gruppa samlet</strong> – ingen bør gå alene foran eller bak.</li>
+    </ul>
+  </section>
+
+  <!-- 3. Hvis du går deg vill – STOPP -->
+  <section class="section section--lost">
+    <h2><span class="icon icon-alert"></span>Hvis du går deg vill</h2>
+    <p>
+      Blir du usikker på hvor du er, er det viktigste å ikke få panikk. Bruk STOPP-regelen:
+    </p>
+
+    <div class="card card--stop">
+      <h3>STOPP</h3>
+      <dl class="stop-rule">
+        <div>
+          <dt>S – Stopp</dt>
+          <dd>Ikke fortsett å gå i panikk. Stans, pust rolig, og ta en pause.</dd>
+        </div>
+        <div>
+          <dt>T – Tenk</dt>
+          <dd>Hvor var du sist du var helt sikker på posisjonen? Hva har du sett siden da?</dd>
+        </div>
+        <div>
+          <dt>O – Observer</dt>
+          <dd>Se deg rundt: stier, vann, høyder, lyder, hus, kraftlinjer. Sjekk kart/kompass hvis du har.</dd>
+        </div>
+        <div>
+          <dt>P – Planlegg</dt>
+          <dd>
+            Bestem deg: skal du bli der du er, eller gå rolig tilbake samme vei du kom – hvis du er sikker.
+          </dd>
+        </div>
+      </dl>
+    </div>
+
+    <h3>Når bør du bli der du er?</h3>
+    <ul>
+      <li>Når du er usikker på retningen.</li>
+      <li>Når det nærmer seg mørke eller været blir dårlig.</li>
+      <li>Når du er skadet, veldig sliten eller har barn med deg.</li>
+    </ul>
+
+    <h3>Når kan du forsøke å gå?</h3>
+    <ul>
+      <li>Når du <strong>vet</strong> hvor du kom fra og kan følge samme vei tilbake.</li>
+      <li>Når du ser en tydelig sti, vei eller kraftlinje du er trygg på leder mot folk.</li>
+    </ul>
+
+    <h3>Gjør deg synlig</h3>
+    <ul>
+      <li>Bruk sterke farger (jakke, sekk, klær) og legg deg et sted du er lett å se.</li>
+      <li>Lag store tegn i snø, sand eller gress (kors, piler, bokstaver).</li>
+      <li>Bruk fløyte: 3 korte signaler, pause, gjenta.</li>
+      <li>Bruk lys fra lommelykt eller mobil hvis du har batteri.</li>
+    </ul>
+
+    <h3>Når skal du ringe 112?</h3>
+    <p>
+      Ring nødetatene når:
+    </p>
+    <ul>
+      <li>du er skadet eller noen andre er skadet,</li>
+      <li>du ikke finner veien tilbake og det blir mørkt eller været er farlig,</li>
+      <li>du er våt/kald og redd for å bli nedkjølt,</li>
+      <li>du har barn med deg og situasjonen er uoversiktlig.</li>
+    </ul>
+  </section>
+
+  <!-- 4. Kulde og vær -->
+  <section class="section section--cold">
+    <h2><span class="icon icon-cold"></span>Kulde og vær</h2>
+    <p>
+      Kulde og vind kan gjøre en enkel tur farlig. Følg med på kropp og klær.
+    </p>
+
+    <h3>Tegn på nedkjøling (hypotermi)</h3>
+    <ul>
+      <li>Ufrivillig skjelving.</li>
+      <li>Klønete bevegelser, vanskelig å bruke fingre.</li>
+      <li>Forvirring, sløvhet eller rar oppførsel.</li>
+    </ul>
+
+    <h3>Hva kan du gjøre?</h3>
+    <ul>
+      <li>Finn ly for vind og nedbør (skog, stein, levegg, nødbu).</li>
+      <li>Ta på tørt og varmt tøy, spesielt på hode, hals og hender.</li>
+      <li>Spis og drikk – kroppen trenger energi for å holde varmen.</li>
+      <li>Del varme (sitte tett, dele sovepose/teppe) hvis det er nødvendig.</li>
+    </ul>
+  </section>
+
+  <!-- 5. Mini-pakkeliste -->
+  <section class="section section--packlist">
+    <h2><span class="icon icon-pack"></span>Mini-pakkeliste for alle turer</h2>
+    <p>
+      Dette er ting som tar lite plass, men kan bety mye hvis noe går galt:
+    </p>
+    <ul class="pack-list">
+      <li>Kart og kompass.</li>
+      <li>Liten førstehjelpspakke.</li>
+      <li>Ekstra ulltrøye, lue og votter.</li>
+      <li>Litt ekstra mat og vann.</li>
+      <li>Lommelykt/pannel ykt med batterier.</li>
+      <li>Fløyte.</li>
+      <li>Nødteppe.</li>
+      <li>Powerbank til mobil.</li>
+      <li>Liten kniv eller multiverktøy.</li>
+    </ul>
+  </section>
+
+  <footer class="page-footer">
+    <p class="source-note">
+      Rådene på denne siden bygger på anbefalinger fra blant annet DNT, Norsk Friluftsliv,
+      Røde Kors Hjelpekorps, Varsom og andre beredskapsaktører.
+    </p>
+  </footer>
+</main>
 
   <nav class="nav-buttons no-print">
     <button onclick="history.back()">⬅ Tilbake</button>
