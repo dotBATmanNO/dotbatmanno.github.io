@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gotta-beredskap-v104';
+const CACHE_NAME = 'gotta-beredskap-v105';
 const OFFLINE_FILES = [
   '/favicon.ico',
   '/beredskap/',
@@ -65,6 +65,8 @@ const OFFLINE_FILES = [
   '/beredskap/pages/',
   '/beredskap/pages/cprhlr.html',
   '/beredskap/pages/fire.html',
+  '/beredskap/pages/nature.html',
+  '/beredskap/pages/numbers.html',
   '/beredskap/pages/power.html',
   '/beredskap/pages/weather.html',
   '/beredskap/pages/index.html'
@@ -100,4 +102,3 @@ self.addEventListener('fetch', event => {
     )
   );
 });
-
