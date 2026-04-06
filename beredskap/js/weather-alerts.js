@@ -24,20 +24,43 @@
     const desc = alert.properties.description;
 
     // caller controls which part to use
-    const alerttype = type[1].trim().toLowerCase();
-    const alertlevel = level.toLowerCase();
+    const alerttype = type[1]?.trim().toLowerCase() || 'generic';
+    const alertlevel = ['yellow', 'orange', 'red'].includes(level.toLowerCase())
+      ? level.toLowerCase()
+      : 'yellow';
     const iconPath = `/beredskap/icons/icon-warning-${alerttype}-${alertlevel}.svg`;
+    const genericIconPath = `/beredskap/icons/icon-warning-generic-${alertlevel}.svg`;
+    const fallbackIconPath = `/beredskap/icons/varsel.svg`;
 
     const div = document.createElement('div');
     div.className = 'alert-box';
-    div.innerHTML = `
-      <img src="${iconPath}" alt="${type}" class="alert-icon" />
-      <div class="alert-text">
-        <strong>${type}</strong> (${severity})<br />
-        <em>${area}</em><br />
-        ${desc}
-      </div>
+
+    const img = document.createElement('img');
+    img.src = iconPath;
+    img.alt = type.join('; ');
+    img.className = 'alert-icon';
+    img.onerror = () => {
+      if (img.src.endsWith(iconPath)) {
+        img.onerror = null;
+        img.src = genericIconPath;
+      } else if (img.src.endsWith(genericIconPath)) {
+        img.onerror = null;
+        img.src = fallbackIconPath;
+      } else {
+        img.onerror = null;
+      }
+    };
+
+    const text = document.createElement('div');
+    text.className = 'alert-text';
+    text.innerHTML = `
+      <strong>${type.join('; ')}</strong> (${severity})<br />
+      <em>${area}</em><br />
+    y  ${desc}
     `;
+
+    div.appendChild(img);
+    div.appendChild(text);
     container.appendChild(div);
   }
 
