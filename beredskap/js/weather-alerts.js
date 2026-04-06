@@ -54,7 +54,7 @@
     const text = document.createElement('div');
     text.className = 'alert-text';
     text.innerHTML = `
-      <strong>${type.join('; ')}</strong> (${severity})<br />
+      <strong>${alerttype}</strong> (${severity})<br />
       <em>${area}</em><br />
       ${desc}
     `;
