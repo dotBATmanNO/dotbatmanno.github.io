@@ -54,9 +54,9 @@
     const text = document.createElement('div');
     text.className = 'alert-text';
     text.innerHTML = `
-      <strong>${type.join('; ')}</strong> (${severity})<br />
+      (${severity})<br />
       <em>${area}</em><br />
-    y  ${desc}
+      ${desc}
     `;
 
     div.appendChild(img);
