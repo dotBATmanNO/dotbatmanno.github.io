@@ -1,7 +1,7 @@
 (function () {
   const container = document.getElementById('weather-alerts');
   const timestamp = document.getElementById('weather-timestamp');
-  // const endpoint = 'https://api.met.no/weatherapi/metalerts/2.0/current.json';
+  //const endpoint = 'https://api.met.no/weatherapi/metalerts/2.0/current.json';
   // Test with: 
   const endpoint = 'https://api.met.no/weatherapi/metalerts/2.0/test.json';
 
@@ -54,7 +54,7 @@
     const text = document.createElement('div');
     text.className = 'alert-text';
     text.innerHTML = `
-      (${severity})<br />
+      <strong>${type.join('; ')}</strong> (${severity})<br />
       <em>${area}</em><br />
       ${desc}
     `;
@@ -98,7 +98,7 @@
         alerts.forEach(renderAlert);
         sessionStorage.setItem('metalerts', JSON.stringify(alerts));
       }
-      timestamp.textContent = `Sist hentet: ${formatTime(new Date())}`;
+      timestamp.textContent = `Sist hentet: ${formatTime(new Date())}. Hentet fra ${endpoint}`;
     })
     .catch(err => {
       showError(err.message);
