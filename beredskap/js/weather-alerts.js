@@ -24,7 +24,7 @@
     const desc = alert.properties.description;
 
     // caller controls which part to use
-    const alerttype = type[1].trim();
+    const alerttype = type[1].trim().toLowerCase();
     const alertlevel = level.toLowerCase();
     const iconPath = `/beredskap/icons/icon-warning-${alerttype}-${alertlevel}.svg`;
 
