@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="180" viewBox="0 0 800 180">
+  <style>
+    .box {
+      fill: #f5f7fa;
+      stroke: #2c3e50;
+      stroke-width: 2;
+      rx: 12;
+    }
+    .text {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      font-weight: bold;
+      text-anchor: middle;
+      fill: #2c3e50;
+    }
+    .arrow {
+      stroke: #2c3e50;
+      stroke-width: 3;
+      fill: none;
+      marker-end: url(#arrowhead);
+    }
+  </style>
+
+  <defs>
+    <marker id="arrowhead"
+            markerWidth="10"
+            markerHeight="7"
+            refX="9"
+            refY="3.5"
+            orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+    </marker>
+  </defs>
+
+  <rect class="box" x="20"  y="50" width="120" height="60"/>
+  <text class="text" x="80"  y="88">🗺️ Kart</text>
+
+  <line class="arrow" x1="140" y1="80" x2="180" y2="80"/>
+
+  <rect class="box" x="180" y="50" width="120" height="60"/>
+  <text class="text" x="240" y="88">🧭 Kurs</text>
+
+  <line class="arrow" x1="300" y1="80" x2="340" y2="80"/>
+
+  <rect class="box" x="340" y="50" width="120" height="60"/>
+  <text class="text" x="400" y="88">🎯 Punkt</text>
+
+  <line class="arrow" x1="460" y1="80" x2="500" y2="80"/>
+
+  <rect class="box" x="500" y="50" width="120" height="60"/>
+  <text class="text" x="560" y="88">🚶 Gå</text>
+
+  <line class="arrow" x1="620" y1="80" x2="660" y2="80"/>
+
+  <rect class="box" x="660" y="50" width="120" height="60"/>
+  <text class="text" x="720" y="88">📍 Mål</text>
+</svg>
