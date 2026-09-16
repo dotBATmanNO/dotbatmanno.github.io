@@ -50,6 +50,7 @@ const OFFLINE_FILES = [
   '/beredskap/img/icon-192.png',
   '/beredskap/img/icon-512.png',
   '/beredskap/img/icon-cpr.svg',
+  '/beredskap/img/offlinemap.svg',
   '/beredskap/img/qrshare.png',
   '/beredskap/js/link-checker.js',
   '/beredskap/js/weather-alerts.js',
@@ -67,6 +68,7 @@ const OFFLINE_FILES = [
   '/beredskap/pages/fire.html',
   '/beredskap/pages/nature.html',
   '/beredskap/pages/numbers.html',
+  '/beredskap/pages/offlinemap.html',
   '/beredskap/pages/power.html',
   '/beredskap/pages/weather.html',
   '/beredskap/pages/index.html'
