@@ -11,17 +11,22 @@
 @media (min-width: 900px) {
   .layout {
     display: grid;
-    /* grid-template-columns: 1fr 350px; */
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr minmax(350px, 1fr); /* venstre + høyre kolonne */
     gap: 2rem;
-    max-width: 1200px;
+    max-width: 100%; /* bruker hele bredden */
     margin: 0 auto;
+  }
+
+  .lager-seksjon {
+    min-width: 300px; /* hindrer at overskrifter brytes */
+    max-width: 400px; /* holder kortene pene */
   }
 }
 
+/* === Ekstra brede skjermer === */
 @media (min-width: 1400px) {
   .layout {
-    grid-template-columns: 1fr 1fr 350px;
+    grid-template-columns: 1fr 1fr minmax(350px, 1fr);
     max-width: 1600px;
   }
 }
