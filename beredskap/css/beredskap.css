@@ -23,7 +23,7 @@
 
   .side-content {
     grid-column: 2; /* høyre kolonne */   
-    margin-right: 2 rem;
+    margin-right: 2rem;
   }
 
   .side-content .grid {
