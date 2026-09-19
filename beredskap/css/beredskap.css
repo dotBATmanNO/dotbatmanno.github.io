@@ -11,7 +11,7 @@
 @media (min-width: 900px) {
   .layout {
     display: grid;
-    grid-template-columns: 1fr minmax(320px, 2fr);
+    grid-template-columns: 30% 70%;
     gap: 2rem;
     max-width: 100%;
     margin: 0 auto;
@@ -120,7 +120,7 @@ button {
 }
 
 .card {
-  max-width: 600px;
+  max-width: 350px;
   margin: auto;
   background: #ffffff;
   padding: 1.2em;
