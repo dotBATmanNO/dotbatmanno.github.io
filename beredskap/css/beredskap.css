@@ -18,8 +18,7 @@
   }
 
   .lager-seksjon {
-    min-width: 320px;   /* hindrer smale kort */
-    max-width: 400px;   /* hindrer brede kort */
+    max-width: 300px;   /* hindrer brede kort */
   }
 }
 
