@@ -17,6 +17,13 @@
     margin: 0 auto;
   }
 
+  .main-content {
+    grid-column: 1; /* venstre kolonne */
+  }
+
+  .side-content {
+    grid-column: 2; /* høyre kolonne */
+  }
   .lager-seksjon {
     min-width: 250px;
     max-width: 350px;   /* hindrer brede kort */
