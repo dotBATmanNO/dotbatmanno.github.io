@@ -1,3 +1,25 @@
+/* Mobil først (default) */
+.layout {
+  display: block;
+}
+
+.side-content {
+  margin-top: 2rem; /* så den ligger under */
+}
+
+/* PC / store skjermer */
+@media (min-width: 900px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 300px; /* venstre + høyre kolonne */
+    gap: 2rem;
+  }
+
+  .side-content {
+    margin-top: 0; /* fjern mobil-avstand */
+  }
+}
+
 body {
   font-family: sans-serif;
   background: #f8f8f8;
