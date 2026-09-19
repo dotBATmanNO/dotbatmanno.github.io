@@ -22,8 +22,13 @@
   }
 
   .side-content {
-    grid-column: 2; /* høyre kolonne */
+    grid-column: 2; /* høyre kolonne */   
   }
+
+  .side-content .grid {
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+  }
+ 
   .lager-seksjon {
     min-width: 250px;
     max-width: 350px;   /* hindrer brede kort */
