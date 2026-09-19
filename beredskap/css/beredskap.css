@@ -7,26 +7,26 @@
   margin-top: 2rem; /* så den ligger under */
 }
 
-/* === PC / store skjermer – utvidet layout === */
+/* PC / store skjermer */
 @media (min-width: 900px) {
   .layout {
     display: grid;
-    grid-template-columns: 2fr minmax(350px, 1fr); /* venstre + høyre kolonne */
+    grid-template-columns: 2fr minmax(320px, 1fr);
     gap: 2rem;
-    max-width: 100%; /* bruker hele bredden */
+    max-width: 100%;
     margin: 0 auto;
   }
 
   .lager-seksjon {
-    min-width: 300px; /* hindrer at overskrifter brytes */
-    max-width: 400px; /* holder kortene pene */
+    min-width: 320px;   /* hindrer smale kort */
+    max-width: 400px;   /* hindrer brede kort */
   }
 }
 
-/* === Ekstra brede skjermer === */
+/* Ekstra brede skjermer */
 @media (min-width: 1400px) {
   .layout {
-    grid-template-columns: 1fr 1fr minmax(350px, 1fr);
+    grid-template-columns: 1fr 1fr minmax(320px, 1fr);
     max-width: 1600px;
   }
 }
