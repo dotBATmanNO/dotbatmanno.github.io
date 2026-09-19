@@ -11,7 +11,7 @@
 @media (min-width: 900px) {
   .layout {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 2fr minmax(320px, 1fr); /* venstre dynamisk, høyre stabil */
     gap: 2rem;
     max-width: 100%;
     margin: 0 auto;
