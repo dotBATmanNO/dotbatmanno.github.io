@@ -23,14 +23,6 @@
   }
 }
 
-/* Ekstra brede skjermer */
-@media (min-width: 1400px) {
-  .layout {
-    grid-template-columns: 1fr 1fr minmax(320px, 1fr);
-    max-width: 1600px;
-  }
-}
-
 body {
   font-family: sans-serif;
   background: #f8f8f8;
