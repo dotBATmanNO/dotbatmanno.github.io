@@ -23,10 +23,12 @@
 
   .side-content {
     grid-column: 2; /* høyre kolonne */   
+    margin-right: 2 rem;
   }
 
   .side-content .grid {
     grid-template-columns: repeat(3, minmax(160px, 1fr));
+    grid-
   }
  
   .lager-seksjon {
