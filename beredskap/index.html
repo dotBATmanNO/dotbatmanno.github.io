@@ -157,139 +157,140 @@
   <footer>  
     <p>Klar for bruk uten nett. Sist oppdatert: November 2025.</p>
   </footer>
+  <script>
+    const PROTECTED_ITERATIONS = 600000;
+    const protectedEncoder = new TextEncoder();
 
-  const PROTECTED_ITERATIONS = 600000;
-  const protectedEncoder = new TextEncoder();
+    async function deriveProtectedKey(passphrase, salt) {
+      const passwordKey = await crypto.subtle.importKey(
+        "raw",
+        protectedEncoder.encode(passphrase),
+        "PBKDF2",
+        false,
+        ["deriveKey"]
+      );
 
-  async function deriveProtectedKey(passphrase, salt) {
-    const passwordKey = await crypto.subtle.importKey(
-      "raw",
-      protectedEncoder.encode(passphrase),
-      "PBKDF2",
-      false,
-      ["deriveKey"]
-    );
-
-    return crypto.subtle.deriveKey(
-      {
-        name: "PBKDF2",
-        salt,
-        iterations: PROTECTED_ITERATIONS,
-        hash: "SHA-256"
-      },
-      passwordKey,
-      { name: "AES-GCM", length: 256 },
-      false,
-      ["decrypt"]
-    );
-  }
-
-  function decodePayloadBase64(value) {
-    const validBase64 =
-      /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
-
-    if (typeof value !== "string" || !validBase64.test(value)) {
-      throw new Error("Ugyldig Base64.");
+      return crypto.subtle.deriveKey(
+        {
+          name: "PBKDF2",
+          salt,
+          iterations: PROTECTED_ITERATIONS,
+          hash: "SHA-256"
+        },
+        passwordKey,
+        { name: "AES-GCM", length: 256 },
+        false,
+        ["decrypt"]
+      );
     }
 
-    return Uint8Array.from(atob(value), character =>
-      character.charCodeAt(0)
-    );
-  }
+    function decodePayloadBase64(value) {
+      const validBase64 =
+        /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
 
-  document.querySelectorAll(".lager-seksjon").forEach(section => {
-    const payloadElement = section.querySelector(
-      'script.encrypted-payload[type="application/json"]'
-    );
-
-    if (!payloadElement) return;
-
-    const placeholder = document.createElement("p");
-    placeholder.textContent =
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-
-    const status = document.createElement("p");
-    status.setAttribute("role", "status");
-    status.setAttribute("aria-live", "polite");
-
-    let payload;
-
-    try {
-      payload = JSON.parse(payloadElement.textContent);
-
-      if (!payload ||
-          payload.version !== 1 ||
-          !Number.isInteger(payload.passphraseId) ||
-          payload.passphraseId < 0 ||
-          payload.passphraseId > 9) {
-        throw new Error("Payloaden har feil format.");
+      if (typeof value !== "string" || !validBase64.test(value)) {
+        throw new Error("Ugyldig Base64.");
       }
 
-      const salt = decodePayloadBase64(payload.salt);
-      const iv = decodePayloadBase64(payload.iv);
-      const ciphertext = decodePayloadBase64(payload.ciphertext);
-
-      if (salt.length !== 16 || iv.length !== 12 || ciphertext.length < 16) {
-        throw new Error("Payloaden har ugyldig lengde.");
-      }
-    } catch {
-      status.textContent = "Dette kortet har en ugyldig kryptert payload.";
-      status.classList.add("alert-error");
-      section.append(status);
-      return;
+      return Uint8Array.from(atob(value), character =>
+        character.charCodeAt(0)
+      );
     }
 
-    const form = document.createElement("form");
-    const label = document.createElement("label");
-    const passphraseInput = document.createElement("input");
-    const unlockButton = document.createElement("button");
+    document.querySelectorAll(".lager-seksjon").forEach(section => {
+      const payloadElement = section.querySelector(
+        'script.encrypted-payload[type="application/json"]'
+      );
 
-    label.textContent = `Passfrase # ${payload.passphraseId}`;
-    passphraseInput.type = "password";
-    passphraseInput.autocomplete = "current-password";
-    passphraseInput.required = true;
-    label.append(document.createElement("br"), passphraseInput);
+      if (!payloadElement) return;
 
-    unlockButton.type = "submit";
-    unlockButton.textContent = "Lås opp";
+      const placeholder = document.createElement("p");
+      placeholder.textContent =
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
 
-    form.append(label, document.createElement("br"), unlockButton);
-    section.append(placeholder, form, status);
+      const status = document.createElement("p");
+      status.setAttribute("role", "status");
+      status.setAttribute("aria-live", "polite");
 
-    form.addEventListener("submit", async event => {
-      event.preventDefault();
-      unlockButton.disabled = true;
-      status.textContent = "Dekrypterer …";
+      let payload;
 
       try {
-        if (!window.isSecureContext || !window.crypto?.subtle) {
-          throw new Error("Web Crypto er ikke tilgjengelig.");
+        payload = JSON.parse(payloadElement.textContent);
+
+        if (!payload ||
+            payload.version !== 1 ||
+            !Number.isInteger(payload.passphraseId) ||
+            payload.passphraseId < 0 ||
+            payload.passphraseId > 9) {
+          throw new Error("Payloaden har feil format.");
         }
 
         const salt = decodePayloadBase64(payload.salt);
         const iv = decodePayloadBase64(payload.iv);
         const ciphertext = decodePayloadBase64(payload.ciphertext);
-        const key = await deriveProtectedKey(passphraseInput.value, salt);
-        const plaintext = await crypto.subtle.decrypt(
-          { name: "AES-GCM", iv },
-          key,
-          ciphertext
-        );
 
-        placeholder.textContent = new TextDecoder("utf-8", {
-          fatal: true
-        }).decode(plaintext);
-
-        form.remove();
-        status.textContent = "";
+        if (salt.length !== 16 || iv.length !== 12 || ciphertext.length < 16) {
+          throw new Error("Payloaden har ugyldig lengde.");
+        }
       } catch {
-        status.textContent =
-          "Dekryptering mislyktes. Kontroller passfrasen og payloaden.";
+        status.textContent = "Dette kortet har en ugyldig kryptert payload.";
         status.classList.add("alert-error");
-        unlockButton.disabled = false;
+        section.append(status);
+        return;
       }
+
+      const form = document.createElement("form");
+      const label = document.createElement("label");
+      const passphraseInput = document.createElement("input");
+      const unlockButton = document.createElement("button");
+
+      label.textContent = `Passfrase # ${payload.passphraseId}`;
+      passphraseInput.type = "password";
+      passphraseInput.autocomplete = "current-password";
+      passphraseInput.required = true;
+      label.append(document.createElement("br"), passphraseInput);
+
+      unlockButton.type = "submit";
+      unlockButton.textContent = "Lås opp";
+
+      form.append(label, document.createElement("br"), unlockButton);
+      section.append(placeholder, form, status);
+
+      form.addEventListener("submit", async event => {
+        event.preventDefault();
+        unlockButton.disabled = true;
+        status.textContent = "Dekrypterer …";
+
+        try {
+          if (!window.isSecureContext || !window.crypto?.subtle) {
+            throw new Error("Web Crypto er ikke tilgjengelig.");
+          }
+
+          const salt = decodePayloadBase64(payload.salt);
+          const iv = decodePayloadBase64(payload.iv);
+          const ciphertext = decodePayloadBase64(payload.ciphertext);
+          const key = await deriveProtectedKey(passphraseInput.value, salt);
+          const plaintext = await crypto.subtle.decrypt(
+            { name: "AES-GCM", iv },
+            key,
+            ciphertext
+          );
+
+          placeholder.textContent = new TextDecoder("utf-8", {
+            fatal: true
+          }).decode(plaintext);
+
+          form.remove();
+          status.textContent = "";
+        } catch {
+          status.textContent =
+            "Dekryptering mislyktes. Kontroller passfrasen og payloaden.";
+          status.classList.add("alert-error");
+          unlockButton.disabled = false;
+        }
+      });
     });
-  });
+  </script>
   <script>
     
     if ('serviceWorker' in navigator) {
