@@ -33,7 +33,7 @@
  
   .lager-seksjon {
     min-width: 250px;
-    max-width: 80%;   /* hindrer brede kort */
+    max-width: 350px;   /* hindrer brede kort */
     white-space: pre-wrap;
   }
 }
@@ -288,6 +288,7 @@ nav.navigasjon a {
 }
 
 .lager-seksjon {
+  white-space: pre-wrap;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
