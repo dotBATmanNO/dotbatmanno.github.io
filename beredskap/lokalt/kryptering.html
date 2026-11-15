@@ -30,7 +30,7 @@
         </p>
         <p>
           <p>
-            <label for="passphraseId">Passordnummer</label><br>
+            <label for="passphraseId">Passfrasenummer</label><br>
             <select id="passphraseId" required>
               <option value="0">0</option>
               <option value="1">1</option>
@@ -164,8 +164,7 @@
     const decryptStatus = document.getElementById("decryptStatus");
     const copyPayloadButton = document.getElementById("copyPayload");
     const payloadInput = document.getElementById("payloadInput");
-    const decryptPassphraseLabel =
-      document.getElementById("decryptPassphraseLabel");
+    const decryptPassphraseLabel = document.getElementById("decryptPassphraseLabel");
 
     function updatePassphraseLabel() {
       try {
@@ -175,10 +174,10 @@
         if (payload?.version === 1 &&
             Number.isInteger(id) &&
             id >= 0 && id <= 9) {
-          decryptPassphraseLabel.textContent = `Passord # ${id}`;
+          decryptPassphraseLabel.textContent = `Passfrase # ${id}`;
         } else {
           decryptPassphraseLabel.textContent =
-            "Passfrase (payload uten gyldig passordnummer)";
+            "Passfrase (payload uten gyldig passfrasenummer)";
         }
       } catch {
         decryptPassphraseLabel.textContent =
