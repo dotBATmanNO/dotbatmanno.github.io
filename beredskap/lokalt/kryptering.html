@@ -67,8 +67,9 @@
                     style="width:100%;box-sizing:border-box"></textarea>
         </p>
         <p>
-          <label for="decryptPassphrase">Passfrase</label><br>
-          <label id="decryptPassphraseLabel" for="decryptPassphrase" title="Passfrase (lim inn payload for å se nummer)"></label><br>
+          <label id="decryptPassphraseLabel" for="decryptPassphrase">
+            Passfrase (lim inn payload for å se nummer)
+          </label><br>
           <input id="decryptPassphrase" type="password"
                  autocomplete="current-password" required>
         </p>
@@ -162,6 +163,30 @@
     const encryptStatus = document.getElementById("encryptStatus");
     const decryptStatus = document.getElementById("decryptStatus");
     const copyPayloadButton = document.getElementById("copyPayload");
+    const payloadInput = document.getElementById("payloadInput");
+    const decryptPassphraseLabel =
+      document.getElementById("decryptPassphraseLabel");
+
+    function updatePassphraseLabel() {
+      try {
+        const payload = JSON.parse(payloadInput.value);
+        const id = payload?.passphraseId;
+
+        if (payload?.version === 1 &&
+            Number.isInteger(id) &&
+            id >= 0 && id <= 9) {
+          decryptPassphraseLabel.textContent = `Passord # ${id}`;
+        } else {
+          decryptPassphraseLabel.textContent =
+            "Passfrase (payload uten gyldig passordnummer)";
+        }
+      } catch {
+        decryptPassphraseLabel.textContent =
+          "Passfrase (lim inn payload for å se nummer)";
+      }
+    }
+
+    payloadInput.addEventListener("input", updatePassphraseLabel);
     let encryptionRequest = 0;
 
     encryptForm.addEventListener("reset", clearEncryptedPayload);
@@ -254,41 +279,15 @@
       setStatus(decryptStatus, "Dekrypterer …");
 
       try {
-        const payload = JSON.parse(
-          document.getElementById("payloadInput").value
-        );
+        const payload = JSON.parse(payloadInput.value);
 
         if (!payload || payload.version !== 1) {
           throw new Error("Payload-formatet støttes ikke.");
         }
-        const payloadInput = document.getElementById("payloadInput");
         const salt = fromBase64(payload.salt);
         const iv = fromBase64(payload.iv);
         const ciphertext = fromBase64(payload.ciphertext);
-        const decryptPassphraseLabel =
-          document.getElementById("decryptPassphraseLabel");
-
-        function updatePassphraseLabel() {
-          try {
-            const payload = JSON.parse(payloadInput.value);
-            const id = payload.passphraseId;
-
-            if (payload.version === 1 &&
-                Number.isInteger(id) &&
-                id >= 0 && id <= 9) {
-              decryptPassphraseLabel.textContent = `Passord # ${id}`;
-              return;
-            }
-
-            decryptPassphraseLabel.textContent =
-              "Passfrase (eldre payload uten passordnummer)";
-          } catch {
-            decryptPassphraseLabel.textContent =
-              "Passfrase (lim inn payload for å se nummer)";
-          }
-        }
-
-        payloadInput.addEventListener("input", updatePassphraseLabel);
+        
         if (salt.length !== 16 || iv.length !== 12 || ciphertext.length < 16) {
           throw new Error("Payloaden har ugyldig lengde.");
         }
