@@ -33,7 +33,8 @@
  
   .lager-seksjon {
     min-width: 250px;
-    max-width: 350px;   /* hindrer brede kort */
+    max-width: 80%;   /* hindrer brede kort */
+    white-space: pre-wrap;
   }
 }
 
