@@ -29,6 +29,21 @@
                     style="width:100%;box-sizing:border-box"></textarea>
         </p>
         <p>
+          <p>
+            <label for="passphraseId">Passordnummer</label><br>
+            <select id="passphraseId" required>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
+          </p>
           <label for="encryptPassphrase">Passfrase (minst 12 tegn)</label><br>
           <input id="encryptPassphrase" type="password" minlength="12"
                  autocomplete="new-password" required>
@@ -53,6 +68,7 @@
         </p>
         <p>
           <label for="decryptPassphrase">Passfrase</label><br>
+          <label id="decryptPassphraseLabel" for="decryptPassphrase" title="Passfrase (lim inn payload for å se nummer)"></label><br>
           <input id="decryptPassphrase" type="password"
                  autocomplete="current-password" required>
         </p>
@@ -213,6 +229,7 @@
         if (requestId !== encryptionRequest) return;
         encryptedPayload.value = JSON.stringify({
           version: 1,
+          passphraseId: Number(document.getElementById("passphraseId").value),
           salt: toBase64(salt),
           iv: toBase64(iv),
           ciphertext: toBase64(new Uint8Array(ciphertext))
