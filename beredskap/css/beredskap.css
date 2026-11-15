@@ -391,5 +391,15 @@ nav.navigasjon a {
     .print-slip {
       min-height: 4cm;
     }
+
+     .print-area-container > :not(.print-area) {
+    display: none !important;
+    }
+
+    .print-area {
+      box-shadow: none !important;
+      break-inside: avoid;
+    }
   }
+
 }
