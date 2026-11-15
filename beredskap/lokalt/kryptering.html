@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>Kryptering i nettleseren – Gotta.no</title>
+  <link rel="stylesheet" href="../css/beredskap.css">
+</head>
+<body>
+  <main>
+    <section class="card">
+      <h1>🔒 Kryptering i nettleseren</h1>
+      <p class="intro">
+        Teksten krypteres og dekrypteres lokalt i nettleseren.
+        Passfrasen sendes ikke til en server eller lagres av siden.
+      </p>
+      <p class="note">
+        Bruk siden over HTTPS. Velg en lang passfrase, og oppbevar den
+        separat fra den krypterte teksten. Mister du passfrasen, kan
+        teksten ikke gjenopprettes.
+      </p>
+
+      <h2>Krypter tekst</h2>
+      <form id="encryptForm">
+        <p>
+          <label for="plainText">Tekst som skal krypteres</label><br>
+          <textarea id="plainText" rows="8" required
+                    style="width:100%;box-sizing:border-box"></textarea>
+        </p>
+        <p>
+          <label for="encryptPassphrase">Passfrase (minst 12 tegn)</label><br>
+          <input id="encryptPassphrase" type="password" minlength="12"
+                 autocomplete="new-password" required>
+        </p>
+        <button type="submit">Krypter</button>
+        <button type="reset">Tøm skjema</button>
+        <p id="encryptStatus" role="status" aria-live="polite"></p>
+        <p>
+          <label for="encryptedPayload">Kryptert payload</label><br>
+          <textarea id="encryptedPayload" rows="8" readonly
+                    style="width:100%;box-sizing:border-box"></textarea>
+        </p>
+        <button id="copyPayload" type="button" disabled>Kopier kryptert tekst.</button>
+      </form>
+
+      <h2>Dekrypter tekst</h2>
+      <form id="decryptForm">
+        <p>
+          <label for="payloadInput">Kryptert payload</label><br>
+          <textarea id="payloadInput" rows="8" required
+                    style="width:100%;box-sizing:border-box"></textarea>
+        </p>
+        <p>
+          <label for="decryptPassphrase">Passfrase</label><br>
+          <input id="decryptPassphrase" type="password"
+                 autocomplete="current-password" required>
+        </p>
+        <button type="submit">Dekrypter</button>
+        <button type="reset">Tøm skjema</button>
+        <p id="decryptStatus" role="status" aria-live="polite"></p>
+        <p>
+          <label for="decryptedText">Dekryptert tekst</label><br>
+          <textarea id="decryptedText" rows="8" readonly
+                    style="width:100%;box-sizing:border-box"></textarea>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <nav class="nav-buttons" aria-label="Navigasjon">
+    <button type="button" onclick="history.back()">⬅ Tilbake</button>
+    <a href="/beredskap/index.html">🏠 Hjem</a>
+    <button type="button"
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+      🔝 Til toppen
+    </button>
+  </nav>
+
+  <footer>
+    <p>Kryptering skjer lokalt i nettleseren med Web Crypto API.</p>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const ITERATIONS = 600000;
+    const encoder = new TextEncoder();
+    const decoder = new TextDecoder("utf-8", { fatal: true });
+
+    async function deriveKey(passphrase, salt) {
+      const passwordKey = await crypto.subtle.importKey(
+        "raw",
+        encoder.encode(passphrase),
+        "PBKDF2",
+        false,
+        ["deriveKey"]
+      );
+
+      return crypto.subtle.deriveKey(
+        {
+          name: "PBKDF2",
+          salt,
+          iterations: ITERATIONS,
+          hash: "SHA-256"
+        },
+        passwordKey,
+        { name: "AES-GCM", length: 256 },
+        false,
+        ["encrypt", "decrypt"]
+      );
+    }
+
+    function toBase64(bytes) {
+      let binary = "";
+      for (let offset = 0; offset < bytes.length; offset += 0x8000) {
+        binary += String.fromCharCode(
+          ...bytes.subarray(offset, offset + 0x8000)
+        );
+      }
+      return btoa(binary);
+    }
+
+    function fromBase64(value) {
+      const validBase64 =
+        /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
+
+      if (typeof value !== "string" || !validBase64.test(value)) {
+        throw new Error("Payloaden inneholder ugyldige data.");
+      }
+
+      return Uint8Array.from(atob(value), character =>
+        character.charCodeAt(0)
+      );
+    }
+
+    function setStatus(element, message, isError = false) {
+      element.textContent = message;
+      element.classList.toggle("alert-error", isError);
+    }
+
+    const encryptForm = document.getElementById("encryptForm");
+    const decryptForm = document.getElementById("decryptForm");
+    const encryptedPayload = document.getElementById("encryptedPayload");
+    const decryptedText = document.getElementById("decryptedText");
+    const encryptStatus = document.getElementById("encryptStatus");
+    const decryptStatus = document.getElementById("decryptStatus");
+    const copyPayloadButton = document.getElementById("copyPayload");
+    let encryptionRequest = 0;
+
+    encryptForm.addEventListener("reset", clearEncryptedPayload);
+
+    function clearEncryptedPayload() {
+      encryptionRequest++;
+      encryptedPayload.value = "";
+      copyPayloadButton.disabled = true;
+      setStatus(encryptStatus, "");
+    }
+
+    document.getElementById("plainText").addEvsentListener("input", clearEncryptedPayload);
+    document.getElementById("encryptPassphrase").addEventListener("input", clearEncryptedPayload);
+    decryptForm.addEventListener("reset", () => {
+    setStatus(decryptStatus, "");
+    });
+
+    copyPayloadButton.addEventListener("click", async () => {
+    try {
+        await navigator.clipboard.writeText(encryptedPayload.value);
+        setStatus(encryptStatus, "Kryptert tekst kopiert.");
+    } catch {
+        encryptedPayload.focus();
+        encryptedPayload.select();
+        setStatus(
+          encryptStatus,
+          "Automatisk kopiering mislyktes. Teksten er markert for manuell kopiering."
+        );
+    }
+    });
+    if (!window.isSecureContext || !window.crypto?.subtle) {
+      encryptForm.querySelector("button[type=submit]").disabled = true;
+      decryptForm.querySelector("button[type=submit]").disabled = true;
+      setStatus(
+        encryptStatus,
+        "Web Crypto er ikke tilgjengelig. Åpne siden via HTTPS eller localhost.",
+        true
+      );
+      setStatus(
+        decryptStatus,
+        "Web Crypto er ikke tilgjengelig. Åpne siden via HTTPS eller localhost.",
+        true
+      );
+    }
+
+    encryptForm.addEventListener("submit", async event => {
+      event.preventDefault();
+      const requestId = ++encryptionRequest;
+      encryptedPayload.value = "";
+      copyPayloadButton.disabled = true;
+      setStatus(encryptStatus, "Krypterer …");
+
+      try {
+        const plaintext = document.getElementById("plainText").value;
+        const passphrase =
+          document.getElementById("encryptPassphrase").value;
+        const salt = crypto.getRandomValues(new Uint8Array(16));
+        const iv = crypto.getRandomValues(new Uint8Array(12));
+        const key = await deriveKey(passphrase, salt);
+        const ciphertext = await crypto.subtle.encrypt(
+          { name: "AES-GCM", iv },
+          key,
+          encoder.encode(plaintext)
+        );
+        if (requestId !== encryptionRequest) return;
+        encryptedPayload.value = JSON.stringify({
+          version: 1,
+          kdf: "PBKDF2-SHA-256",
+          iterations: ITERATIONS,
+          cipher: "AES-GCM-256",
+          salt: toBase64(salt),
+          iv: toBase64(iv),
+          ciphertext: toBase64(new Uint8Array(ciphertext))
+        }, null, 2);
+        copyPayloadButton.disabled = false;
+        setStatus(
+          encryptStatus,
+          "Ferdig. Payloaden inneholder krypterte data, ikke passfrasen."
+        );
+      } catch {
+        setStatus(
+          encryptStatus,
+          "Kryptering mislyktes. Kontroller at nettleseren støtter Web Crypto.",
+          true
+        );
+      }
+    });
+
+    decryptForm.addEventListener("submit", async event => {
+      event.preventDefault();
+      decryptedText.value = "";
+      setStatus(decryptStatus, "Dekrypterer …");
+
+      try {
+        const payload = JSON.parse(
+          document.getElementById("payloadInput").value
+        );
+
+        if (!payload ||
+            payload.version !== 1 ||
+            payload.kdf !== "PBKDF2-SHA-256" ||
+            payload.iterations !== ITERATIONS ||
+            payload.cipher !== "AES-GCM-256") {
+          throw new Error("Payload-formatet støttes ikke.");
+        }
+
+        const salt = fromBase64(payload.salt);
+        const iv = fromBase64(payload.iv);
+        const ciphertext = fromBase64(payload.ciphertext);
+
+        if (salt.length !== 16 || iv.length !== 12 || ciphertext.length < 16) {
+          throw new Error("Payloaden har ugyldig lengde.");
+        }
+
+        const passphrase =
+          document.getElementById("decryptPassphrase").value;
+        const key = await deriveKey(passphrase, salt);
+        const plaintext = await crypto.subtle.decrypt(
+          { name: "AES-GCM", iv },
+          key,
+          ciphertext
+        );
+
+        decryptedText.value = decoder.decode(plaintext);
+        setStatus(decryptStatus, "Dekryptering fullført.");
+      } catch {
+        setStatus(
+          decryptStatus,
+          "Dekryptering mislyktes. Kontroller passfrasen og payloaden.",
+          true
+        );
+      }
+    });
+    
+  </script>
+</body>
+</html>
