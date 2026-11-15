@@ -213,9 +213,6 @@
         if (requestId !== encryptionRequest) return;
         encryptedPayload.value = JSON.stringify({
           version: 1,
-          kdf: "PBKDF2-SHA-256",
-          iterations: ITERATIONS,
-          cipher: "AES-GCM-256",
           salt: toBase64(salt),
           iv: toBase64(iv),
           ciphertext: toBase64(new Uint8Array(ciphertext))
@@ -244,11 +241,7 @@
           document.getElementById("payloadInput").value
         );
 
-        if (!payload ||
-            payload.version !== 1 ||
-            payload.kdf !== "PBKDF2-SHA-256" ||
-            payload.iterations !== ITERATIONS ||
-            payload.cipher !== "AES-GCM-256") {
+        if (!payload || payload.version !== 1 {
           throw new Error("Payload-formatet støttes ikke.");
         }
 
