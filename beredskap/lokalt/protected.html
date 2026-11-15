@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Protected Section Demo</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+section {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+button {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.locked {
+    color: #666;
+}
+</style>
+
+</head>
+<body>
+
+<section id="generatorInfo">
+
+    <h2>🔒 Generator Instructions</h2>
+
+    <div class="content locked">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+    </div>
+
+    <br>
+
+    <button id="unlockBtn">
+        Unlock
+    </button>
+
+</section>
+
+<script>
+
+const PASSPHRASE = "NeighborDemo2026";
+
+/*
+    SECRET CONTENT
+    In production this would NOT be here.
+    It would already be encrypted and stored
+    as ciphertext in the HTML.
+*/
+const secretText = `
+<h3>Emergency Generator Start Procedure</h3>
+
+<ol>
+<li>Open fuel valve.</li>
+<li>Switch off main breaker.</li>
+<li>Start generator.</li>
+<li>Wait 30 seconds.</li>
+<li>Connect backup circuit.</li>
+</ol>
+
+<p>Fuel reserve is stored in the shed.</p>
+`;
+
+let encryptedPayload = null;
+
+async function deriveKey(password, salt) {
+
+    const passwordKey = await crypto.subtle.importKey(
+        "raw",
+        new TextEncoder().encode(password),
+        "PBKDF2",
+        false,
+        ["deriveKey"]
+    );
+
+    return crypto.subtle.deriveKey(
+        {
+            name: "PBKDF2",
+            salt,
+            iterations: 250000,
+            hash: "SHA-256"
+        },
+        passwordKey,
+        {
+            name: "AES-GCM",
+            length: 256
+        },
+        false,
+        ["encrypt", "decrypt"]
+    );
+}
+
+function toBase64(buffer) {
+
+    return btoa(
+        String.fromCharCode(...new Uint8Array(buffer))
+    );
+}
+
+function fromBase64(base64) {
+
+    return Uint8Array.from(
+        atob(base64),
+        c => c.charCodeAt(0)
+    );
+}
+
+async function encrypt(text, password) {
+
+    const salt = crypto.getRandomValues(
+        new Uint8Array(16)
+    );
+
+    const iv = crypto.getRandomValues(
+        new Uint8Array(12)
+    );
+
+    const key = await deriveKey(password, salt);
+
+    const ciphertext = await crypto.subtle.encrypt(
+        {
+            name: "AES-GCM",
+            iv
+        },
+        key,
+        new TextEncoder().encode(text)
+    );
+
+    return {
+        salt: toBase64(salt),
+        iv: toBase64(iv),
+        ciphertext: toBase64(ciphertext)
+    };
+}
+
+async function decrypt(data, password) {
+
+    const key = await deriveKey(
+        password,
+        fromBase64(data.salt)
+    );
+
+    const plaintext = await crypto.subtle.decrypt(
+        {
+            name: "AES-GCM",
+            iv: fromBase64(data.iv)
+        },
+        key,
+        fromBase64(data.ciphertext)
+    );
+
+    return new TextDecoder().decode(plaintext);
+}
+
+(async () => {
+
+    encryptedPayload = await encrypt(
+        secretText,
+        PASSPHRASE
+    );
+
+})();
+
+document.getElementById("unlockBtn")
+    .addEventListener("click", async () => {
+
+    const password = prompt(
+        "Enter passphrase:"
+    );
+
+    if (!password)
+        return;
+
+    try {
+
+        const html = await decrypt(
+            encryptedPayload,
+            password
+        );
+
+        document.querySelector(".content")
+            .innerHTML = html;
+
+        document.querySelector(".content")
+            .classList.remove("locked");
+
+        document.getElementById("unlockBtn")
+            .remove();
+
+    }
+    catch {
+
+        alert("Wrong passphrase");
+
+    }
+});
+
+</script>
+
+</body>
+</html>

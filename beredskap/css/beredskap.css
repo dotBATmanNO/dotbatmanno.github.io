@@ -353,4 +353,43 @@ nav.navigasjon a {
   .no-print, nav, button {
     display: none !important;
   }
+
+    /* Reusable bulleted list */
+  ul.content-list {
+    list-style: disc;
+    padding-left: 1.4rem;
+  }
+
+  /* Reusable printable slips */
+  .print-slips {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.8em;
+    margin-top: 1.5em;
+  }
+
+  .print-slip {
+    min-height: 140px;
+    border: 2px dashed #555;
+    border-radius: 8px;
+    padding: 1rem;
+    break-inside: avoid;
+  }
+
+  .print-slip .write-line {
+    min-height: 2.5rem;
+    margin-top: 1rem;
+    border-bottom: 1px solid #222;
+  }
+
+  @media print {
+    .print-slips {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.6cm;
+    }
+
+    .print-slip {
+      min-height: 4cm;
+    }
+  }
 }
