@@ -157,7 +157,7 @@
       setStatus(encryptStatus, "");
     }
 
-    document.getElementById("plainText").addEvsentListener("input", clearEncryptedPayload);
+    document.getElementById("plainText").addEventListener("input", clearEncryptedPayload);
     document.getElementById("encryptPassphrase").addEventListener("input", clearEncryptedPayload);
     decryptForm.addEventListener("reset", () => {
     setStatus(decryptStatus, "");
